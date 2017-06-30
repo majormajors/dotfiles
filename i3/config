@@ -168,4 +168,4 @@ bar {
 exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/the-girl-who-leapt-through-space.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id conky -c ~/.conkyrc
-exec --no-startup-id udiskie &
+exec --no-startup-id udiskie -ans &
