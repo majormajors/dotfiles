@@ -150,9 +150,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 2+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 2-
+bindsym XF86AudioPlay exec --no-startup-id audacious -t
+bindsym XF86AudioStop exec --no-startup-id audacious -s
+bindsym XF86AudioNext exec --no-startup-id audacious -f
+bindsym XF86AudioPrev exec --no-startup-id audacious -r
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # language
 setxkbmap -layout en,ko
