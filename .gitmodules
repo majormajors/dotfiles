@@ -1,96 +1,128 @@
 [submodule "bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+  ignore = untracked
 [submodule "bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+  ignore = untracked
 [submodule "bundle/rails"]
 	path = vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
+  ignore = untracked
 [submodule "bundle/tcomment"]
 	path = vim/bundle/tcomment
 	url = git://github.com/vim-scripts/tComment.git
+  ignore = untracked
 [submodule "bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+  ignore = untracked
 [submodule "bundle/taglist"]
 	path = vim/bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
+  ignore = untracked
 [submodule "bundle/L9"]
 	path = vim/bundle/L9
 	url = git://github.com/slack/vim-l9.git
+  ignore = untracked
 [submodule "bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+  ignore = untracked
 [submodule "bundle/javascript"]
 	path = vim/bundle/javascript
 	url = git://github.com/pangloss/vim-javascript
+  ignore = untracked
 [submodule "bundle/nginx"]
 	path = vim/bundle/nginx
 	url = git://github.com/vim-scripts/nginx.vim
+  ignore = untracked
 [submodule "bundle/solarized"]
 	path = vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+  ignore = untracked
 [submodule "bundle/gitv"]
 	path = vim/bundle/gitv
 	url = git://github.com/gregsexton/gitv.git
+  ignore = untracked
 [submodule "bundle/cucumber"]
 	path = vim/bundle/cucumber
 	url = git://github.com/tpope/vim-cucumber.git
+  ignore = untracked
 [submodule "bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+  ignore = untracked
 [submodule "bundle/ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim
+  ignore = untracked
 [submodule "bundle/bufkill"]
 	path = vim/bundle/bufkill
 	url = git://github.com/vim-scripts/bufkill.vim.git
+  ignore = untracked
 [submodule "bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+  ignore = untracked
 [submodule "bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
+  ignore = untracked
 [submodule "bundle/actionscript"]
 	path = vim/bundle/actionscript
 	url = git://github.com/vim-scripts/actionscript.vim.git
+  ignore = untracked
 [submodule "bundle/VimClojure"]
 	path = vim/bundle/VimClojure
 	url = git://github.com/vim-scripts/VimClojure.git
+  ignore = untracked
 [submodule "bundle/vim-indent-object"]
 	path = vim/bundle/vim-indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
+  ignore = untracked
 [submodule "bundle/vim-snipmate"]
 	path = vim/bundle/vim-snipmate
 	url = git://github.com/garbas/vim-snipmate.git
+  ignore = untracked
 [submodule "bundle/vim-addon-mw-utils"]
 	path = vim/bundle/vim-addon-mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+  ignore = untracked
 [submodule "bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
 	url = git://github.com/tomtom/tlib_vim.git
+  ignore = untracked
 [submodule "bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+  ignore = untracked
 [submodule "bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+  ignore = untracked
 [submodule "bundle/numbers.vim"]
 	path = vim/bundle/numbers.vim
 	url = git://github.com/myusuf3/numbers.vim.git
+  ignore = untracked
 [submodule "bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
+  ignore = untracked
 [submodule "bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+  ignore = untracked
 [submodule "bundle/vim-ruby-refactoring"]
 	path = vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+  ignore = untracked
 [submodule "bundle/matchit"]
 	path = vim/bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
+  ignore = untracked
 [submodule "bundle/vim-go"]
 	path = vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+  ignore = untracked
