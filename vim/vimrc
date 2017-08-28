@@ -94,26 +94,6 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " \ is the leader character
 let mapleader = ","
 
-" Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
-
-" Leader shortcuts for Rails commands
-map <Leader>m :Rmodel<CR> 
-map <Leader>c :Rcontroller<CR>
-map <Leader>v :Rview<CR>
-map <Leader>u :Runittest<CR>
-" map <Leader>f :Rfunctionaltest<CR>
-map <Leader>tm :RTmodel<CR>
-map <Leader>tc :RTcontroller<CR>
-map <Leader>tv :RTview<CR>
-map <Leader>tu :RTunittest<CR>
-map <Leader>tf :RTfunctionaltest<CR>
-map <Leader>sm :RSmodel<CR>
-map <Leader>sc :RScontroller<CR>
-map <Leader>sv :RSview<CR>
-map <Leader>su :RSunittest<CR>
-map <Leader>sf :RSfunctionaltest<CR>
-
 " Leader shortcuts for fuf
 map <Leader>ff :FufFile<CR>
 map <Leader>fb :FufBuffer<CR>
@@ -161,10 +141,6 @@ imap <C-L> <Space>=><Space>
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
-
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! Rschema :e db/schema.rb
 
 " Local config
 if filereadable(".vimrc.local")
@@ -273,27 +249,12 @@ let g:gist_open_browser_after_post = 1
 let g:gist_show_privates           = 1
 
 " Markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-command! Markdown :!bluecloth % > %:t:r.html
-map <Leader>dc :Markdown<CR>
-
-" ActionScript
-autocmd BufNewFile,BufReadPost *.as set filetype=actionscript
-map <Leader>ac :!mxmlc %<CR>
+"autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+"command! Markdown :!bluecloth % > %:t:r.html
+"map <Leader>dc :Markdown<CR>
 
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
-
-" vim ruby refactor
-nnoremap <leader>rap  :RAddParameter<cr>
-nnoremap <leader>rcpc :RConvertPostConditional<cr>
-nnoremap <leader>rel  :RExtractLet<cr>
-vnoremap <leader>rec  :RExtractConstant<cr>
-vnoremap <leader>relv :RExtractLocalVariable<cr>
-nnoremap <leader>rit  :RInlineTemp<cr>
-vnoremap <leader>rrlv :RRenameLocalVariable<cr>
-vnoremap <leader>rriv :RRenameInstanceVariable<cr>
-vnoremap <leader>rem  :RExtractMethod<cr>
 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
