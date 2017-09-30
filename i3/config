@@ -205,6 +205,8 @@ bar {
 
 for_window [class="^.*"] border pixel 1
 
+bindsym --release Print exec scrot
+
 exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
 exec --no-startup-id dropbox start
 exec --no-startup-id conky -c ~/.conkyrc
