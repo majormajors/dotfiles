@@ -173,6 +173,9 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
+# screen lock
+bindsym $mod+p exec --no-startup-id ~/.local/i3lock-fancy/lock
+
 # Media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 2+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 2-
