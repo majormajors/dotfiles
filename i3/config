@@ -210,6 +210,7 @@ for_window [class="^.*"] border pixel 1
 
 bindsym --release Print exec scrot
 
+exec --no-startup-id gnome-settings-daemon &
 exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
 exec --no-startup-id dropbox start
 exec --no-startup-id conky -c ~/.conkyrc
@@ -217,7 +218,10 @@ exec --no-startup-id udiskie -ans &
 exec --no-startup-id wicd-client --tray
 exec --no-startup-id compton -b -c
 
-client.focused #99cc99 #99cc99 #000000 #2d2d2d
-client.focused_inactive #393939 #393939 #888888 #292d2e
-client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+# client.focused #99cc99 #99cc99 #000000 #2d2d2d
+# client.focused_inactive #393939 #393939 #888888 #292d2e
+# client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
+# client.urgent #2f343a #900000 #ffffff #900000
+
+client.background       #3f4551
+client.focused          #708EA0 #668AA0 #85AEC6
