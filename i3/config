@@ -210,6 +210,7 @@ bar {
 for_window [class="^.*"] border pixel 1
 
 bindsym --release Print exec scrot
+bindsym --release $mod+Print exec scrot -s
 
 exec --no-startup-id gnome-settings-daemon &
 exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
