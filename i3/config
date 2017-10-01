@@ -193,8 +193,9 @@ setxkbmap -option 'grp:ctrl_alt_toggle'
 # finds out, if available)
 bar {
   #status_command i3status
-        status_command i3blocks
-        tray_output primary
+  status_command i3blocks
+  tray_output primary
+  position top
   colors {
     separator #515151
     background #2d2d2d
