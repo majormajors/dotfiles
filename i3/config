@@ -208,6 +208,7 @@ bar {
 }
 
 for_window [class="^.*"] border pixel 1
+for_window [class="xpad"] floating enable
 
 bindsym --release Print exec scrot
 bindsym --release $mod+Print exec scrot -s
