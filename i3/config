@@ -219,7 +219,7 @@ exec --no-startup-id dropbox start
 exec --no-startup-id conky -c ~/.conkyrc
 exec --no-startup-id udiskie -ans &
 exec --no-startup-id wicd-client --tray
-exec --no-startup-id compton -b -c
+# exec --no-startup-id compton -b -c
 
 # client.focused #99cc99 #99cc99 #000000 #2d2d2d
 # client.focused_inactive #393939 #393939 #888888 #292d2e
