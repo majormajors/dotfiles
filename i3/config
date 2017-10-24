@@ -170,8 +170,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
 
 # screen lock
 bindsym $mod+p exec --no-startup-id ~/.local/i3lock-fancy/lock
@@ -218,8 +218,9 @@ exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
 exec --no-startup-id dropbox start
 exec --no-startup-id conky -c ~/.conkyrc
 exec --no-startup-id udiskie -ans &
-exec --no-startup-id wicd-client --tray
-# exec --no-startup-id compton -b -c
+exec --no-startup-id nm-applet
+#exec --no-startup-id wicd-client --tray
+#exec --no-startup-id compton -b -c
 
 # client.focused #99cc99 #99cc99 #000000 #2d2d2d
 # client.focused_inactive #393939 #393939 #888888 #292d2e
