@@ -169,6 +169,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# hibernate
+bindsym XF86Sleep exec --no-startup-id gksudo pm-hibernate
+
 # brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
@@ -177,13 +180,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightnes
 bindsym $mod+p exec --no-startup-id ~/.local/i3lock-fancy/lock
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 2+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 2-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse -q sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse -q sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse -q sset Master toggle && pkill -RTMIN+1 i3blocks
+
 bindsym XF86AudioPlay exec --no-startup-id audacious -t
 bindsym XF86AudioStop exec --no-startup-id audacious -s
 bindsym XF86AudioNext exec --no-startup-id audacious -f
 bindsym XF86AudioPrev exec --no-startup-id audacious -r
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # language
 setxkbmap -layout en,ko
@@ -214,11 +218,13 @@ bindsym --release Print exec scrot
 bindsym --release $mod+Print exec scrot -s
 
 exec --no-startup-id gnome-settings-daemon &
-exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
+#exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
+exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/triangle_background_dark_spots_88544_1920x1080.jpg
 exec --no-startup-id dropbox start
 exec --no-startup-id conky -c ~/.conkyrc
 exec --no-startup-id udiskie -ans &
 exec --no-startup-id nm-applet
+exec --no-startup-id redshift-gtk &
 #exec --no-startup-id wicd-client --tray
 #exec --no-startup-id compton -b -c
 
