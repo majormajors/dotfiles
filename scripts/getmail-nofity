@@ -1,0 +1,12 @@
+#!/bin/sh
+
+MESSAGE_COUNT=`getmail | awk '/([0-9]+) messages \([0-9]+ bytes\) retrieved/ {print $1}'`
+#MESSAGE_COUNT="2"
+
+if [ "$MESSAGE_COUNT" -gt "0" ]; then
+  PLURAL=emails
+  if [ "$MESSAGE_COUNT" -eq "1" ]; then
+    PLURAL=email
+  fi
+  notify-send -i mail-message-new "${MESSAGE_COUNT} new ${PLURAL}"
+fi
