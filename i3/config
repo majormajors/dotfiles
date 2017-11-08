@@ -180,9 +180,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightnes
 bindsym $mod+p exec --no-startup-id ~/.local/i3lock-fancy/lock
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse -q sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse -q sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse -q sset Master toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle && pkill -RTMIN+1 i3blocks
 
 bindsym XF86AudioPlay exec --no-startup-id audacious -t
 bindsym XF86AudioStop exec --no-startup-id audacious -s
@@ -190,8 +190,8 @@ bindsym XF86AudioNext exec --no-startup-id audacious -f
 bindsym XF86AudioPrev exec --no-startup-id audacious -r
 
 # language
-setxkbmap -layout en,ko
-setxkbmap -option 'grp:ctrl_alt_toggle'
+#setxkbmap -layout en,ko
+#setxkbmap -option 'grp:ctrl_alt_toggle'
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -226,7 +226,7 @@ exec --no-startup-id udiskie -ans &
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk &
 #exec --no-startup-id wicd-client --tray
-#exec --no-startup-id compton -b -c
+exec --no-startup-id compton -b -c
 
 # client.focused #99cc99 #99cc99 #000000 #2d2d2d
 # client.focused_inactive #393939 #393939 #888888 #292d2e
@@ -235,3 +235,7 @@ exec --no-startup-id redshift-gtk &
 
 client.background       #3f4551
 client.focused          #708EA0 #668AA0 #85AEC6
+
+gaps inner 10
+gaps outer 5
+smart_borders on
