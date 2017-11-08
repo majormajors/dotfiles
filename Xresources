@@ -1,19 +1,54 @@
 urxvt*foreground: white
 urxvt*background: black
 
-*color0:  #2E3436
-*color1:  #a40000
-*color2:  #4E9A06
-*color3:  #C4A000
-*color4:  #3465A4
-*color5:  #75507B
-*color6:  #ce5c00
-*color7:  #babdb9
-*color8:  #555753
-*color9:  #EF2929
-*color10: #8AE234
-*color11: #FCE94F
-*color12: #729FCF
-*color13: #AD7FA8
-*color14: #fcaf3e
-*color15: #EEEEEC
+!*color0:  #2E3436
+!*color1:  #a40000
+!*color2:  #4E9A06
+!*color3:  #C4A000
+!*color4:  #3465A4
+!*color5:  #75507B
+!*color6:  #ce5c00
+!*color7:  #babdb9
+!*color8:  #555753
+!*color9:  #EF2929
+!*color10: #8AE234
+!*color11: #FCE94F
+!*color12: #729FCF
+!*color13: #AD7FA8
+!*color14: #fcaf3e
+!*color15: #EEEEEC
+
+
+! Black
+*color0:   #111111
+*color8:   #666666
+
+! Red
+*color1:   rgb:d3/62/65
+*color9:   rgb:ef/81/71
+
+! Green
+*color2:   #aece91
+*color10:  #cfefb3
+
+! Yellow
+*color3:   rgb:e7/e1/8c
+*color11:  rgb:ff/f7/96
+
+! Blue
+*color4:   #5297cf
+*color12:  #74b8ef
+
+! Magenta
+*color5:   #963c59
+*color13:  #b85e7b
+
+! Cyan
+*color6:   #5E7175
+*color14:  #A3BABF
+
+! White
+*color7:   #bebebe
+*color15:  #ffffff
+
+! vim: et sw=2 syn=xdefaults
