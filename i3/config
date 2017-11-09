@@ -218,10 +218,9 @@ bindsym --release Print exec scrot
 bindsym --release $mod+Print exec scrot -s
 
 exec --no-startup-id gnome-settings-daemon &
-#exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/829733.png
-exec --no-startup-id feh --bg-scale ~/Dropbox/wallpapers/triangle_background_dark_spots_88544_1920x1080.jpg
+exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper
 exec --no-startup-id dropbox start
-exec --no-startup-id conky -c ~/.conkyrc
+#exec --no-startup-id conky -c ~/.conkyrc
 exec --no-startup-id udiskie -ans &
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk &
