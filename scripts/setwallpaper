@@ -1,0 +1,10 @@
+#!/bin/sh
+
+WALLPAPER_PATH=$HOME/.config/wallpaper
+
+if [ -f $WALLPAPER_PATH ]; then
+  unlink $WALLPAPER_PATH
+fi
+
+ln -s $1 $WALLPAPER_PATH
+feh --bg-scale $WALLPAPER_PATH
