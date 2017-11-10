@@ -12,6 +12,12 @@ if [ -z "$FEH_COMMAND" ]; then
   exit
 fi
 
+# check we were given a path
+if [ -z $WALLPAPER_PATH ]; then
+  echo "Please provide a path to an image file" >&2
+  exit
+fi
+
 # check that the file exists
 if [ ! -f $WALLPAPER_PATH ]; then
   echo "$WALLPAPER_PATH is not a valid file" >&2
@@ -24,12 +30,16 @@ if [ ! -d $CONFIG_DIR ]; then
 fi
 
 # unlink current symlink
-if [ -f $WALLPAPER_PATH ]; then
+if [ -e $WALLPAPER_SYMLINK ]; then
+  if [ ! -L $WALLPAPER_SYMLINK ]; then
+    echo "$WALLPAPER_SYMLINK is not a symlink. Stopping." >&2
+    exit
+  fi
   unlink $WALLPAPER_SYMLINK
 fi
 
 # create new symlink
-ln -s $1 $WALLPAPER_SYMLINK
+ln -s $WALLPAPER_PATH $WALLPAPER_SYMLINK
 
 # update wallpaper
 $FEH_COMMAND --bg-scale $WALLPAPER_SYMLINK
