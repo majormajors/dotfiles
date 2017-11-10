@@ -177,7 +177,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
 
 # screen lock
-bindsym $mod+p exec --no-startup-id ~/.local/i3lock-fancy/lock
+bindsym $mod+p exec --no-startup-id ~/.dotfiles/scripts/i3lock-fancy/lock
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ && pkill -RTMIN+1 i3blocks
