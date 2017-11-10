@@ -97,3 +97,6 @@
 [submodule "i3blocks-contrib"]
 	path = i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib.git
+[submodule "scripts/i3lock-fancy"]
+	path = scripts/i3lock-fancy
+	url = git@github.com:meskarune/i3lock-fancy.git
