@@ -1,10 +1,35 @@
 #!/bin/sh
 
-WALLPAPER_PATH=$HOME/.config/wallpaper
+CONFIG_DIR=$HOME/.config
+WALLPAPER_SYMLINK=$CONFIG_DIR/wallpaper
+WALLPAPER_PATH=$1
 
-if [ -f $WALLPAPER_PATH ]; then
-  unlink $WALLPAPER_PATH
+FEH_COMMAND=`which feh`
+
+# check that feh is installed
+if [ -z "$FEH_COMMAND" ]; then
+  echo "Please install feh" >&2
+  exit
 fi
 
-ln -s $1 $WALLPAPER_PATH
-feh --bg-scale $WALLPAPER_PATH
+# check that the file exists
+if [ ! -f $WALLPAPER_PATH ]; then
+  echo "$WALLPAPER_PATH is not a valid file" >&2
+  exit
+fi
+
+# create the config dir if it doesn't exist
+if [ ! -d $CONFIG_DIR ]; then
+  mkdir -p $CONFIG_DIR
+fi
+
+# unlink current symlink
+if [ -f $WALLPAPER_PATH ]; then
+  unlink $WALLPAPER_SYMLINK
+fi
+
+# create new symlink
+ln -s $1 $WALLPAPER_SYMLINK
+
+# update wallpaper
+$FEH_COMMAND --bg-scale $WALLPAPER_SYMLINK
