@@ -218,7 +218,7 @@ bindsym --release Print exec scrot
 bindsym --release $mod+Print exec scrot -s
 
 exec --no-startup-id gnome-settings-daemon &
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper
+exec --no-startup-id feh --bg-scale ~/.config/wallpaper
 exec --no-startup-id dropbox start
 #exec --no-startup-id conky -c ~/.conkyrc
 exec --no-startup-id udiskie -ans &
