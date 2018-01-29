@@ -199,7 +199,7 @@ bindsym XF86AudioPrev exec --no-startup-id audacious -r
 bar {
   #status_command i3status
   status_command i3blocks
-  tray_output primary
+  #tray_output primary
   position top
   colors {
     separator #515151

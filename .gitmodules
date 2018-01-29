@@ -100,3 +100,6 @@
 [submodule "scripts/i3lock-fancy"]
 	path = scripts/i3lock-fancy
 	url = git@github.com:meskarune/i3lock-fancy.git
+[submodule "vim/bundle/vim-z80"]
+	path = vim/bundle/vim-z80
+	url = git@github.com:samsaga2/vim-z80.git
