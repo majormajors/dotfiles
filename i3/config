@@ -51,6 +51,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec urxvt -e /usr/bin/zsh
+#bindsym $mod+Return exec st -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -177,7 +178,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 2 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightness
 
 # screen lock
-bindsym $mod+p exec --no-startup-id ~/.dotfiles/scripts/i3lock-fancy/lock
+#bindsym $mod+p exec --no-startup-id ~/.dotfiles/scripts/i3lock-fancy/lock
+bindsym $mod+p exec --no-startup-id xscreensaver-command -lock
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ && pkill -RTMIN+1 i3blocks
