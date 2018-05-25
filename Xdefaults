@@ -28,16 +28,17 @@ URxvt.lineSpace:            0
 URxvt.buffered:             false
 
 ! Fonts
-URxvt.allow_bold:           false
+URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-!URxvt*font: xft:Monospace:pixelsize=14
-!URxvt*boldFont: xft:Monosp:sace:pixelsize=14
-URxvt.font: xft:inconsolata:pixelsize=12,\
-            xft:Inconsolata for Powerline:pixelsize=12:hinting=true:antialias=true,\
+URxvt.boldFont: xft:Inconsolata for Powerline:size=11:hinting=true:antialias=true,\
+            xft:Noto Color Emoji,\
+            xft:Baekmuk Gulim
+URxvt.font: xft:Inconsolata for Powerline:size=11:hinting=true:antialias=true,\
+            xft:Noto Color Emoji,\
             xft:Baekmuk Gulim
 
 ! Fix font space
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt

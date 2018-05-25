@@ -50,8 +50,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt -e /usr/bin/zsh
-#bindsym $mod+Return exec st -e tmux
+#bindsym $mod+Return exec urxvt -e /usr/bin/zsh
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -204,13 +204,13 @@ bar {
   #tray_output primary
   position top
   colors {
-    separator #515151
-    background #2d2d2d
-    statusline #cccccc
-    focused_workspace #99cc99 #99cc99 #000000
-    active_workspace #333333 #333333 #ffffff
-    inactive_workspace #2d2d2d #2d2d2d #999999
-    urgent_workspace #f2777a #f2777a #ffffff
+      background #002b36
+      statusline #839496
+      separator  #586e75
+      focused_workspace  #b58900 #b58900 #002b36
+      active_workspace   #586e75 #586e75 #002b36
+      inactive_workspace #073642 #002b36 #839496
+      urgent_workspace   #dc322f #dc322f #fdf6e3
   }
 }
 
@@ -223,22 +223,16 @@ bindsym --release $mod+Print exec scrot -s
 exec --no-startup-id gnome-settings-daemon &
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper
 exec --no-startup-id dropbox start
-#exec --no-startup-id conky -c ~/.conkyrc
 exec --no-startup-id udiskie -ans &
 exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk &
-#exec --no-startup-id wicd-client --tray
 exec --no-startup-id compton -b -c
-#exec --no-startup-id xautolock -time 5 -secure -locker ~/.dotfiles/scripts/i3lock-fancy/lock &
 exec --no-startup-id xscreensaver -no-splash &
 
-# client.focused #99cc99 #99cc99 #000000 #2d2d2d
-# client.focused_inactive #393939 #393939 #888888 #292d2e
-# client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
-# client.urgent #2f343a #900000 #ffffff #900000
-
-client.background       #3f4551
-client.focused          #708EA0 #668AA0 #85AEC6
+client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #002b36 #073642 #839496 #073642
+client.unfocused        #002b36 #073642 #839496 #073642
+client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
 gaps inner 10
 gaps outer 5
