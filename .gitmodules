@@ -103,3 +103,6 @@
 [submodule "vim/bundle/vim-z80"]
 	path = vim/bundle/vim-z80
 	url = git@github.com:samsaga2/vim-z80.git
+[submodule "vim/bundle/rust.vim"]
+	path = vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
