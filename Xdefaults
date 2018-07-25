@@ -56,3 +56,5 @@ URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
+
+# vim: set ft=xdefaults
