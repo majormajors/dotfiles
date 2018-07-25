@@ -241,6 +241,10 @@ if has('python3')
   python3 del powerline_setup
 endif
 
+" Rust
+autocmd BufRead,BufNewFile *.rs set filetype=rust
+autocmd BufRead,BufNewFile Cargo.toml if &filetype == "" | set filetype=cfg | endif
+
 " Local config
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
