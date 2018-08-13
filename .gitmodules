@@ -109,3 +109,6 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/yats"]
+	path = vim/bundle/yats
+	url = https://github.com/HerringtonDarkholme/yats.vim.git

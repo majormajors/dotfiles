@@ -245,6 +245,9 @@ endif
 autocmd BufRead,BufNewFile *.rs set filetype=rust
 autocmd BufRead,BufNewFile Cargo.toml if &filetype == "" | set filetype=cfg | endif
 
+" Typescript
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+
 " Local config
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
