@@ -144,15 +144,17 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
 
-" Color scheme
-set background=dark
-colorscheme solarized
 
 if has("gui_running")
   highlight Normal guibg=NONE
 else
   highlight Normal ctermbg=NONE
 endif " has("gui_running")
+
+" Color scheme
+syntax enable
+set background=dark
+colorscheme solarized
 
 " Numbers
 set number
@@ -252,3 +254,4 @@ autocmd BufRead,BufNewFile *.ts set filetype=typescript
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
