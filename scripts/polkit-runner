@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+POLKIT_PATH=/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+if [[ -x $POLKIT_PATH ]]; then
+  $POLKIT_PATH
+fi
