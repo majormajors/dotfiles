@@ -9,3 +9,9 @@
 	conflictstyle = diff3
 [diff]
 	colorMoved = dimmed_zebra
+[core]
+	pager = less
+[pager]
+	branch = false
+[fetch]
+	recurseSubmodules = on-demand
