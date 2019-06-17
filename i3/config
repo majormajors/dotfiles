@@ -77,10 +77,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+j move workspace to output left
+bindsym $mod+Shift+k move workspace to output down
+bindsym $mod+Shift+l move workspace to output up
+bindsym $mod+Shift+semicolon move workspace to output right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -202,8 +202,9 @@ bindsym XF86AudioPrev exec --no-startup-id audacious -r
 bar {
   #status_command i3status
   status_command i3blocks
-  #tray_output primary
+  tray_output primary
   position top
+  font pango:Iconsolata for Powerline 12
   colors {
       background #002b36
       statusline #839496
@@ -225,8 +226,10 @@ bindsym --release $mod+Print exec scrot -s
 exec_always --no-startup-id synclient VertScrollDelta=-20 HorizScrollDelta=-20
 
 #exec --no-startup-id gnome-settings-daemon &
+exec --no-startup-id autorandr --change &
+exec --no-startup-id xsettingsd &
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings &
+#exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings &
 exec --no-startup-id ~/.dotfiles/scripts/polkit-runner &
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper
 exec --no-startup-id dropbox start
@@ -241,6 +244,6 @@ client.focused_inactive #002b36 #073642 #839496 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
-gaps inner 10
-gaps outer 5
-smart_borders on
+#gaps inner 10
+#gaps outer 5
+#smart_borders on
