@@ -1,6 +1,6 @@
 [global]
     font = "Droid Sans 8"
-    allow_markup = yes
+    markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
     indicate_hidden = yes
@@ -25,9 +25,9 @@
     #icon_position = left
     #icon_folders = /usr/share/icons/elementary/actions/16/
 
-[frame]
-    width = 1
-    color = "#383838"
+#[frame]
+#    width = 1
+#    color = "#383838"
 
 [shortcuts]
     close = ctrl+space
@@ -35,17 +35,32 @@
     history = ctrl+grave
     context = ctrl+shift+period
 
+#[urgency_low]
+#    background = "#181818"
+#    foreground = "#E3C7AF"
+#    timeout = 5
+#
+#[urgency_normal]
+#    background = "#181818"
+#    foreground = "#E3C7AF"
+#    timeout = 20
+#
+#[urgency_critical]
+#    background = "#181818"
+#    foreground = "#E3C7AF"
+#    timeout = 0
+
 [urgency_low]
-    background = "#181818"
-    foreground = "#E3C7AF"
-    timeout = 5
+    background = "#404040"
+    foreground = "#CCCCCC"
+    timeout = 10
 
 [urgency_normal]
-    background = "#181818"
-    foreground = "#E3C7AF"
-    timeout = 20
+    background = "#859900"
+    foreground = "#DDDDDD"
+    timeout = 10
 
 [urgency_critical]
-    background = "#181818"
-    foreground = "#E3C7AF"
+    background = "#dc322f"
+    foreground = "#DDDDDD"
     timeout = 0
