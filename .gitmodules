@@ -26,10 +26,6 @@
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
   ignore = untracked
-[submodule "bundle/nginx"]
-	path = vim/bundle/nginx
-	url = git://github.com/vim-scripts/nginx.vim
-  ignore = untracked
 [submodule "bundle/solarized"]
 	path = vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
@@ -103,15 +99,12 @@
 [submodule "vim/bundle/vim-z80"]
 	path = vim/bundle/vim-z80
 	url = git@github.com:samsaga2/vim-z80.git
-[submodule "vim/bundle/rust.vim"]
-	path = vim/bundle/rust.vim
-	url = https://github.com/rust-lang/rust.vim.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
 [submodule "vim/bundle/yats"]
 	path = vim/bundle/yats
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
 [submodule "emacs.d/themes/emacs-color-theme-solarized"]
 	path = emacs.d/themes/emacs-color-theme-solarized
 	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule "vim/bundle/vim-polyglot"]
+	path = vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
