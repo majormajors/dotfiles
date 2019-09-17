@@ -144,17 +144,16 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
 
+" Color scheme
+syntax enable
+set background=dark
+colorscheme solarized
 
 if has("gui_running")
   highlight Normal guibg=NONE
 else
   highlight Normal ctermbg=NONE
 endif " has("gui_running")
-
-" Color scheme
-syntax enable
-set background=dark
-colorscheme solarized
 
 " Numbers
 set number
@@ -232,11 +231,6 @@ let g:gist_show_privates           = 1
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
 
-if has('python')
-  python from powerline.vim import setup as powerline_setup
-  python powerline_setup()
-  python del powerline_setup
-endif
 if has('python3')
   python3 from powerline.vim import setup as powerline_setup
   python3 powerline_setup()
