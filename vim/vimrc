@@ -144,17 +144,6 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
 
-" Color scheme
-syntax enable
-set background=dark
-colorscheme solarized
-
-if has("gui_running")
-  highlight Normal guibg=NONE
-else
-  highlight Normal ctermbg=NONE
-endif " has("gui_running")
-
 " Numbers
 set number
 set numberwidth=5
@@ -173,7 +162,6 @@ set complete=.,t
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
-
 
 " Tags
 let g:Tlist_Use_Right_Window=1
@@ -231,11 +219,9 @@ let g:gist_show_privates           = 1
 " Numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
 
-if has('python3')
-  python3 from powerline.vim import setup as powerline_setup
-  python3 powerline_setup()
-  python3 del powerline_setup
-endif
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized_flood'
 
 " Rust
 autocmd BufRead,BufNewFile *.rs set filetype=rust
@@ -244,8 +230,19 @@ autocmd BufRead,BufNewFile Cargo.toml if &filetype == "" | set filetype=cfg | en
 " Typescript
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
+if has("gui_running")
+  highlight Normal guibg=NONE
+  set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+else
+  highlight Normal ctermbg=NONE
+endif " has("gui_running")
+
+" Color scheme
+syntax enable
+set background=dark
+colorscheme solarized
+
 " Local config
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
