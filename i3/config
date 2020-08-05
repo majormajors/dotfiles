@@ -208,7 +208,8 @@ mode "resize" {
 
 # Autostart applications
 exec_always --no-startup-id feh --bg-fill ~/.config/wallpaper
-exec_always --no-startup-id /home/matt/.dotfiles/scripts/configure_screens
+exec_always --no-startup-id $HOME/.dotfiles/scripts/configure-screens
+exec --no-startup-id $HOME/.dotfiles/scripts/polkit-runner
 exec --no-startup-id xsettingsd &
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
