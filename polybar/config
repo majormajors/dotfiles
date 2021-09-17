@@ -132,6 +132,7 @@ label-muted-foreground = #666
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+interval = 5
 click-right = pavucontrol &
 
 [module/powermenu]

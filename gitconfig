@@ -15,3 +15,5 @@
 	branch = false
 [fetch]
 	recurseSubmodules = on-demand
+[init]
+	defaultBranch = trunk
