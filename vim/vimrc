@@ -249,3 +249,6 @@ nnoremap <CR> :noh<CR><CR>
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" New snipmate version
+let g:snipMate = { 'snippet_version' : 1 }
