@@ -1,84 +1,84 @@
-[submodule "bundle/nerdtree"]
+[submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
   ignore = untracked
-[submodule "bundle/fugitive"]
+[submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
   ignore = untracked
-[submodule "bundle/tcomment"]
+[submodule "vim/bundle/tcomment"]
 	path = vim/bundle/tcomment
-	url = git://github.com/vim-scripts/tComment.git
+	url = https://github.com/vim-scripts/tComment.git
   ignore = untracked
-[submodule "bundle/nerdcommenter"]
+[submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
   ignore = untracked
-[submodule "bundle/taglist"]
+[submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
-	url = git://github.com/vim-scripts/taglist.vim.git
+	url = https://github.com/vim-scripts/taglist.vim.git
   ignore = untracked
-[submodule "bundle/L9"]
+[submodule "vim/bundle/L9"]
 	path = vim/bundle/L9
-	url = git://github.com/slack/vim-l9.git
+	url = https://github.com/slack/vim-l9.git
   ignore = untracked
-[submodule "bundle/surround"]
+[submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
   ignore = untracked
-[submodule "bundle/gitv"]
+[submodule "vim/bundle/gitv"]
 	path = vim/bundle/gitv
-	url = git://github.com/gregsexton/gitv.git
+	url = https://github.com/gregsexton/gitv.git
   ignore = untracked
-[submodule "bundle/tabular"]
+[submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
   ignore = untracked
-[submodule "bundle/ack"]
+[submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
-	url = git://github.com/mileszs/ack.vim
+	url = https://github.com/mileszs/ack.vim
   ignore = untracked
-[submodule "bundle/bufkill"]
+[submodule "vim/bundle/bufkill"]
 	path = vim/bundle/bufkill
-	url = git://github.com/vim-scripts/bufkill.vim.git
+	url = https://github.com/vim-scripts/bufkill.vim.git
   ignore = untracked
-[submodule "bundle/ctrlp.vim"]
+[submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
+	url = https://github.com/kien/ctrlp.vim.git
   ignore = untracked
-[submodule "bundle/vim-indent-object"]
+[submodule "vim/bundle/vim-indent-object"]
 	path = vim/bundle/vim-indent-object
-	url = git://github.com/michaeljsmith/vim-indent-object.git
+	url = https://github.com/michaeljsmith/vim-indent-object.git
   ignore = untracked
-[submodule "bundle/vim-snipmate"]
+[submodule "vim/bundle/vim-snipmate"]
 	path = vim/bundle/vim-snipmate
-	url = git://github.com/garbas/vim-snipmate.git
+	url = https://github.com/garbas/vim-snipmate.git
   ignore = untracked
-[submodule "bundle/vim-addon-mw-utils"]
+[submodule "vim/bundle/vim-addon-mw-utils"]
 	path = vim/bundle/vim-addon-mw-utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
   ignore = untracked
-[submodule "bundle/tlib_vim"]
+[submodule "vim/bundle/tlib_vim"]
 	path = vim/bundle/tlib_vim
-	url = git://github.com/tomtom/tlib_vim.git
+	url = https://github.com/tomtom/tlib_vim.git
   ignore = untracked
-[submodule "bundle/syntastic"]
+[submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
   ignore = untracked
-[submodule "bundle/numbers.vim"]
+[submodule "vim/bundle/numbers.vim"]
 	path = vim/bundle/numbers.vim
-	url = git://github.com/myusuf3/numbers.vim.git
+	url = https://github.com/myusuf3/numbers.vim.git
   ignore = untracked
-[submodule "bundle/supertab"]
+[submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
   ignore = untracked
-[submodule "bundle/emmet-vim"]
+[submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
   ignore = untracked
-[submodule "bundle/matchit"]
+[submodule "vim/bundle/matchit"]
 	path = vim/bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
   ignore = untracked
@@ -87,10 +87,10 @@
 	url = https://github.com/vivien/i3blocks-contrib.git
 [submodule "scripts/i3lock-fancy"]
 	path = scripts/i3lock-fancy
-	url = git@github.com:meskarune/i3lock-fancy.git
+	url = https://github.com/meskarune/i3lock-fancy.git
 [submodule "vim/bundle/vim-z80"]
 	path = vim/bundle/vim-z80
-	url = git@github.com:samsaga2/vim-z80.git
+	url = https://github.com/samsaga2/vim-z80.git
 [submodule "vim/bundle/yats"]
 	path = vim/bundle/yats
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
