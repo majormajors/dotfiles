@@ -94,9 +94,6 @@
 [submodule "vim/bundle/yats"]
 	path = vim/bundle/yats
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
-[submodule "emacs.d/themes/emacs-color-theme-solarized"]
-	path = emacs.d/themes/emacs-color-theme-solarized
-	url = https://github.com/sellout/emacs-color-theme-solarized.git
 [submodule "vim/bundle/vim-polyglot"]
 	path = vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
