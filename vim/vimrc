@@ -240,10 +240,14 @@ autocmd BufRead,BufNewFile *.ts set filetype=typescript
 " Color scheme
 syntax enable
 set background=dark
-"colorscheme solarized
 if has("gui_running")
   colorscheme nord
   let g:airline_theme='nord'
+
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 endif
 
 "This unsets the "last search pattern" register by hitting return
