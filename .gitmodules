@@ -106,3 +106,6 @@
 [submodule "vim/bundle/nord-vim"]
 	path = vim/bundle/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
+[submodule "vim/bundle/rust.vim"]
+	path = vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
