@@ -230,17 +230,21 @@ autocmd BufRead,BufNewFile Cargo.toml if &filetype == "" | set filetype=cfg | en
 " Typescript
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
-if has("gui_running")
-  highlight Normal guibg=NONE
-  set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
-else
-  highlight Normal ctermbg=NONE
-endif " has("gui_running")
+"if has("gui_running")
+"  highlight Normal guibg=NONE
+"  set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+"else
+"  highlight Normal ctermbg=NONE
+"endif " has("gui_running")
 
 " Color scheme
 syntax enable
 set background=dark
 "colorscheme solarized
+if has("gui_running")
+  colorscheme nord
+  let g:airline_theme='nord'
+endif
 
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
