@@ -260,3 +260,6 @@ endif
 
 " New snipmate version
 let g:snipMate = { 'snippet_version' : 1 }
+
+" fix for https://github.com/ryanoasis/vim-devicons/issues/266
+set t_RV=
