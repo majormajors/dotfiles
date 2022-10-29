@@ -55,6 +55,9 @@ if has("autocmd")
   " Auto-set ft and autoindent for nginx config files
   autocmd BufRead,BufNewFile /usr/local/nginx/conf/* set ft=nginx autoindent
 
+  " 2 space tab for yaml files
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
