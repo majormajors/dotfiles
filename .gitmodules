@@ -120,3 +120,6 @@
 [submodule "vim/bundle/vim-devicons"]
 	path = vim/bundle/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "tmux/plugins/treemux"]
+	path = tmux/plugins/treemux
+	url = https://github.com/kiyoon/treemux
