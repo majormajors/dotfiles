@@ -15,12 +15,14 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 #set $term konsole
-set $term foot
+set $term footclient
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu rofi -show drun
+set $window_menu rofi -show window
+set $ssh_menu TERMINAL=footclient rofi -show ssh
 
 # borders and gaps
 default_border none
@@ -33,10 +35,14 @@ exec --no-startup-id /usr/lib/pam_kwallet_init
 #exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet --indicator
+exec --no-startup-id foot --server &
 
 # drop-down terminal
 #for_window [app_id="org.kde.yakuake"] floating enable, border none, move absolute position 0 0
 #bindsym $mod+grave yakuake
+
+# terminal transparency
+for_window [app_id="foot"] opacity 0.9
 
 # volume controls
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
@@ -70,9 +76,9 @@ output * bg /home/majors/Downloads/background_hub69772402e81fe5d6c8639f644c2de39
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -112,6 +118,10 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift+w exec $window_menu
+    bindsym $mod+Shift+s exec $ssh_menu
+
+    bindsym $mod+l exec swaylock
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -129,10 +139,10 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    #bindsym $mod+$left focus left
+    #bindsym $mod+$down focus down
+    #bindsym $mod+$up focus up
+    #bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -243,6 +253,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    swaybar_command waybar
     position top
     tray_output eDP-1
     font "MesloLGS Nerd Font" 9

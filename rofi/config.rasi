@@ -1,0 +1,6 @@
+@theme "Arc-Dark"
+configuration{
+  modi: "drun,window,ssh,emoji";
+  combi-modi: "window,ssh";
+}
+
