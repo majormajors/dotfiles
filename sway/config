@@ -62,8 +62,7 @@ bindsym Print exec sway-interactive-screenshot
 output eDP-1 pos 0 0 res 2256x1504 scale 1.5
 #output HDMI-A-2 pos 0 0 res 1920x1200
 #output HDMI-A-1 pos 1920 0 res 1920x1080
-output * bg /home/majors/Downloads/background_hub69772402e81fe5d6c8639f644c2de39_1136512_1920x0_resize_q80_lanczos_3.png stretch
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.wallpaper stretch
 #
 # Example configuration:
 #
