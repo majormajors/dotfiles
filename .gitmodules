@@ -122,3 +122,6 @@
 [submodule "vim/bundle/vim-pio"]
 	path = vim/bundle/vim-pio
 	url = https://github.com/normen/vim-pio.git
+[submodule "vim/bundle/coc"]
+	path = vim/bundle/coc
+	url = https://github.com/neoclide/coc.nvim.git
