@@ -58,10 +58,6 @@
 	path = vim/bundle/numbers.vim
 	url = https://github.com/myusuf3/numbers.vim.git
   ignore = untracked
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = https://github.com/ervandew/supertab
-  ignore = untracked
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
