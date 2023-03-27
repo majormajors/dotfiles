@@ -135,7 +135,23 @@ vmap P p :call setreg('"', getreg('0')) <CR>
 imap <C-F> <C-R>=expand("%")<CR>
 
 " Maps autocomplete to tab
-imap <Tab> <C-X><C-]>
+" imap <Tab> <C-X><C-]>
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 imap <C-L> <Space>=><Space>
 
@@ -154,7 +170,7 @@ set numberwidth=5
 set showmatch
 set showmode
 " Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
+" let g:snippetsEmu_key = "<S-Tab>"
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
@@ -260,9 +276,6 @@ nnoremap <CR> :noh<CR><CR>
 if filereadable(glob("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-" New snipmate version
-let g:snipMate = { 'snippet_version' : 1 }
 
 " fix for https://github.com/ryanoasis/vim-devicons/issues/266
 set t_RV=
