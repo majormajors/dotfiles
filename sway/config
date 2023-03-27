@@ -30,6 +30,7 @@ gaps inner 5
 gaps outer 5
 
 # startup programs
+exec --no-startup-id xsettingsd &
 exec --no-startup-id mako
 exec --no-startup-id /usr/lib/pam_kwallet_init
 #exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
@@ -40,6 +41,9 @@ exec --no-startup-id foot --server &
 # drop-down terminal
 #for_window [app_id="org.kde.yakuake"] floating enable, border none, move absolute position 0 0
 #bindsym $mod+grave yakuake
+
+# thunderbird notifications floating
+#for_window [app_id="thunderbird" title=""] floating enable
 
 # terminal transparency
 for_window [app_id="foot"] opacity 0.9
@@ -56,10 +60,12 @@ bindsym XF86MonBrightnessDown exec light -U 10
 # screenshot
 bindsym Print exec sway-interactive-screenshot
 
+include ~/.config/sway/config.local
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 pos 0 0 res 2256x1504 scale 1.5
+#output eDP-1 pos 0 0 res 1920x1080
 #output HDMI-A-2 pos 0 0 res 1920x1200
 #output HDMI-A-1 pos 1920 0 res 1920x1080
 output * bg ~/.wallpaper stretch
@@ -96,14 +102,6 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
-    accel_profile adaptive
-    click_method button_areas
-    dwt disabled
-    natural_scroll enabled
-    scroll_method two_finger
-    tap disabled
-}
 
 ### Key bindings
 #
