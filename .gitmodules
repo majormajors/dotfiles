@@ -123,3 +123,6 @@
 [submodule "tmux/plugins/treemux"]
 	path = tmux/plugins/treemux
 	url = https://github.com/kiyoon/treemux
+[submodule "vim/bundle/vim-pio"]
+	path = vim/bundle/vim-pio
+	url = https://github.com/normen/vim-pio.git
