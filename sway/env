@@ -4,3 +4,4 @@ export XDG_SESSION_TYPE=wayland
 export MOZ_ENABLE_WAYLAND=1
 export GDK_BACKEND=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket

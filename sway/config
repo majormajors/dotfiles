@@ -29,24 +29,24 @@ default_border none
 gaps inner 5
 gaps outer 5
 
-# startup programs
-exec --no-startup-id xsettingsd &
-exec --no-startup-id mako
-exec --no-startup-id /usr/lib/pam_kwallet_init
-#exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nm-applet --indicator
-exec --no-startup-id foot --server &
+# KeePassXV floating
+for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+
+# Android Emulator floating
+for_window [title="^(?:Android Emulator|Emulator)"] floating enable
+
+# terminal transparency
+for_window [app_id="foot"] opacity 0.9
 
 # drop-down terminal
 #for_window [app_id="org.kde.yakuake"] floating enable, border none, move absolute position 0 0
 #bindsym $mod+grave yakuake
 
-# thunderbird notifications floating
-#for_window [app_id="thunderbird" title=""] floating enable
-
-# terminal transparency
-for_window [app_id="foot"] opacity 0.9
+# startup programs
+exec --no-startup-id mako
+exec --no-startup-id nm-applet --indicator
+exec --no-startup-id foot --server &
+exec --no-startup-id udiskie --appindicator &
 
 # volume controls
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
@@ -60,6 +60,7 @@ bindsym XF86MonBrightnessDown exec light -U 10
 # screenshot
 bindsym Print exec sway-interactive-screenshot
 
+bindsym $mod+Shift+p exec wlprop
 include ~/.config/sway/config.local
 
 ### Output configuration
