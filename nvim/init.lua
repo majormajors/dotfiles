@@ -147,6 +147,9 @@ lspconfig['clangd'].setup {
 lspconfig['bashls'].setup {
   capabilities = capabilities,
 }
+lspconfig['ansiblels'].setup {
+  capabilities = capabilities,
+}
 lspconfig['lua_ls'].setup {
   capabilities = capabilities,
   settings = {
