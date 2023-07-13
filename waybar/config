@@ -104,6 +104,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
+        //"family": "ipv6",
         "format-wifi": "{essid}: {ipaddr}/{cidr}",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
