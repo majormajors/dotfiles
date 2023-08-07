@@ -1,4 +1,0 @@
-#!/bin/bash
-
-autorandr --change
-feh --bg-fill ~/.config/wallpaper

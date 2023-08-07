@@ -1,10 +1,10 @@
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
+Plug 'maxmx03/fluoromachine.nvim'
 Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/nvim-lspconfig'
@@ -57,7 +57,13 @@ map('', '<Right>', ':wincmd l<CR>')
 map('', '<Leader>=', ':wincmd =<CR>')
 
 -- set colorscheme
-cmd.colorscheme('nord')
+local fm = require 'fluoromachine'
+fm.setup {
+  glow = false,
+  transparent = false,
+  theme = 'delta'
+}
+cmd.colorscheme('fluoromachine')
 
 -- PIO
 g.pio_serial_port = '/dev/ttyUSB0'
