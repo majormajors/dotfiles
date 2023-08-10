@@ -21,6 +21,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'jlfwong/vim-mercenary'
 Plug 'tpope/vim-fugitive'
+Plug 'Fymyte/rasi.vim'
 
 Plug 'majormajors/vim-pio'
 
