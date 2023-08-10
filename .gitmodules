@@ -96,21 +96,12 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tmux/plugins/tmux-sensible"]
-	path = tmux/plugins/tmux-sensible
-	url = https://github.com/tmux-plugins/tmux-sensible
-[submodule "tmux/plugins/nord-tmux"]
-	path = tmux/plugins/nord-tmux
-	url = https://github.com/arcticicestudio/nord-tmux
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/bundle/vim-devicons"]
 	path = vim/bundle/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons.git
-[submodule "tmux/plugins/treemux"]
-	path = tmux/plugins/treemux
-	url = https://github.com/kiyoon/treemux
 [submodule "vim/bundle/vim-pio"]
 	path = vim/bundle/vim-pio
 	url = https://github.com/normen/vim-pio.git

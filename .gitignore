@@ -2,3 +2,6 @@
 /emacs.d/auto-save-list
 *.local
 /nvim/plugged
+
+/tmux/plugins/*
+!/tmux/plugins/tpm
