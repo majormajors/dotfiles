@@ -29,7 +29,7 @@ default_border none
 gaps inner 5
 gaps outer 5
 
-# KeePassXV floating
+# KeePassXC floating
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 # Android Emulator floating
@@ -37,6 +37,12 @@ for_window [title="^(?:Android Emulator|Emulator)"] floating enable
 
 # terminal transparency
 for_window [app_id="foot"] opacity 0.9
+
+# VM floating
+for_window [app_id="virt-manager"] floating enable
+
+# TigerVNC floating
+for_window [title="TigerVNC$"] floating enable
 
 # drop-down terminal
 #for_window [app_id="org.kde.yakuake"] floating enable, border none, move absolute position 0 0
