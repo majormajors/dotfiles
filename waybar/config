@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/menu", "sway/workspaces", "sway/mode", "custom/media"],
-    "modules-center": [],
+    "modules-center": ["sway/window"],
     "modules-right": ["network", "tray", "backlight", "pulseaudio", "battery#bat2", "battery",  "clock", "custom/power"],
     // Modules configuration
     // "sway/workspaces": {
@@ -25,6 +25,9 @@
     // },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "format": "{title}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
@@ -135,7 +138,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/menu": {
-        "format": "",
+        "format": "",
         "on-click": "rofi -show drun -i | xargs swaymsg exec --"
     },
     "custom/power": {
