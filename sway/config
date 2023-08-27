@@ -44,6 +44,9 @@ for_window [app_id="virt-manager"] floating enable
 # TigerVNC floating
 for_window [title="TigerVNC$"] floating enable
 
+# IDEA
+for_window [title="Welcome to IntelliJ IDEA"] floating enable
+
 # drop-down terminal
 #for_window [app_id="org.kde.yakuake"] floating enable, border none, move absolute position 0 0
 #bindsym $mod+grave yakuake
