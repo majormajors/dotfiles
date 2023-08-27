@@ -22,6 +22,7 @@ Plug 'mattn/emmet-vim'
 Plug 'jlfwong/vim-mercenary'
 Plug 'tpope/vim-fugitive'
 Plug 'Fymyte/rasi.vim'
+Plug 'udalov/kotlin-vim'
 
 Plug 'majormajors/vim-pio'
 
