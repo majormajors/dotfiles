@@ -17,6 +17,9 @@ username = majors <majors@majors.email>
 # (see 'hg help pager' for details)
 # paginate = never
 
+[subrepos]
+git:allowed = true
+
 [extensions]
 # uncomment the lines below to enable some popular extensions
 # (see 'hg help extensions' for more info)
