@@ -1,6 +1,7 @@
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
+Plug 'editorconfig/editorconfig-vim'
 Plug 'maxmx03/fluoromachine.nvim'
 Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdtree'
@@ -24,6 +25,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'Fymyte/rasi.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'hashivim/vim-vagrant'
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+
 Plug 'majormajors/vim-pio'
 
 vim.call('plug#end')
