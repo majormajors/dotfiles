@@ -23,7 +23,7 @@ Plug 'ludovicchabant/vim-lawrencium'
 Plug 'tpope/vim-fugitive'
 Plug 'Fymyte/rasi.vim'
 Plug 'udalov/kotlin-vim'
-
+Plug 'hashivim/vim-vagrant'
 Plug 'majormajors/vim-pio'
 
 vim.call('plug#end')
