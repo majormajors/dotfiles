@@ -149,13 +149,17 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Run buildifier on bazel/blaze files
-local bazel_group = vim.api.nvim_create_augroup('bazel', { clear = true })
-local bazel_pattern = {'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze'}
+-- configure autoformatters 
+local autoformat_group = vim.api.nvim_create_augroup('autoformat', { clear = true })
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
-    pattern = bazel_pattern,
-    group = bazel_group,
-    command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\' | exe \'silent! edit\''
+    pattern = {'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze'},
+    group = autoformat_group,
+    command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\''
+})
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
+    pattern = {'*.py'},
+    group = autoformat_group,
+    command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\''
 })
 
 -- Set up lspconfig.
