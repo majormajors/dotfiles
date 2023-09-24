@@ -66,7 +66,7 @@ map('', '<Leader>=', ':wincmd =<CR>')
 local fm = require 'fluoromachine'
 fm.setup {
   glow = false,
-  transparent = false,
+  transparent = true,
   theme = 'delta'
 }
 cmd.colorscheme('fluoromachine')
