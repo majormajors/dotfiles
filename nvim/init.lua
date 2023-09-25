@@ -1,3 +1,4 @@
+
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
@@ -52,6 +53,21 @@ set.tabstop = 2
 set.shiftwidth = 2
 set.expandtab = true
 set.termguicolors = true
+set.encoding = 'UTF-8'
+
+-- Fix for mismatched devicons codepoints https://github.com/ryanoasis/vim-devicons/issues/452
+cmd [[
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue']    = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['tex']    = '󰙧'  " nf-md-stop_circle_outline
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cs']     = '󰌛'  " nf-md-language_csharp
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['r']      = '󰟔'  " nf-md-language_r
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rproj']  = '󰗆'  " nf-md-vector_rectangle
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sol']    = '󰡪'  " nf-md-ethereum
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['pem']    = '󰌋'  " nf-md-key_variant
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['robots.txt'] = '󰋚'  " nf-md-history
+]]
 
 g.mapleader = ','
 
