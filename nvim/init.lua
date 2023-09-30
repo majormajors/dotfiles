@@ -170,12 +170,12 @@ local autoformat_group = vim.api.nvim_create_augroup('autoformat', { clear = tru
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze'},
     group = autoformat_group,
-    command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\''
+    command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\' | exe \'silent! edit\''
 })
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'*.py'},
     group = autoformat_group,
-    command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\''
+    command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\' | exe \'silent! edit\''
 })
 
 -- Set up lspconfig.
