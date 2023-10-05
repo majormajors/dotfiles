@@ -17,7 +17,6 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
@@ -28,6 +27,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'hashivim/vim-vagrant'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'majormajors/vim-pio'
 
@@ -97,11 +99,13 @@ map('n', '<Leader>"', ':PIOUploadAndSerial<CR>')
 g.airline_powerline_fonts = true
 g.airline_theme = 'molokai'
 
--- NERDTree setup
-g.NERDTreeShowHidden = true
-g.NERDTreeWinPos = 'right'
-map('n', '<leader>n', ':NERDTreeToggle<CR>')
-map('n', '<leader>y', ':NERDTreeFind<CR>')
+--Telescope setup
+local telescope = require('telescope.builtin')
+map('n', '<leader>ff', telescope.find_files, {})
+map('n', '<leader>fg', telescope.live_grep, {})
+map('n', '<leader>fb', telescope.buffers, {})
+map('n', '<leader>fh', telescope.help_tags, {})
+map('n', '<leader>fi', telescope.highlights, {})
 
 -- Set up nvim-cmp.
 local cmp = require'cmp'
