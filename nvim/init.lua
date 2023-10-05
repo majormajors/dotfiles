@@ -1,3 +1,5 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -5,7 +7,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'maxmx03/fluoromachine.nvim'
 Plug 'tpope/vim-sensible'
-Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -30,6 +31,8 @@ Plug 'bazelbuild/vim-bazel'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'BurntSushi/ripgrep'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
 
 Plug 'majormajors/vim-pio'
 
@@ -39,7 +42,6 @@ local set = vim.opt
 local cmd = vim.cmd
 local map = vim.keymap.set
 local g = vim.g
-local executable = vim.fn.executable
 
 set.syntax = 'on'
 set.background = 'dark'
@@ -94,6 +96,12 @@ g.pio_serial_port = '/dev/ttyUSB0'
 g.pio_serial_baud_rate = 115200
 map('n', '<Leader>;', ':PIOUpload<CR>')
 map('n', '<Leader>"', ':PIOUploadAndSerial<CR>')
+
+-- nvim-tree
+require("nvim-tree").setup()
+map('n', '<leader>n', ':NvimTreeFocus<CR>', {})
+cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
+cmd[[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 
 -- Airline
 g.airline_powerline_fonts = true
