@@ -98,8 +98,10 @@ map('n', '<Leader>;', ':PIOUpload<CR>')
 map('n', '<Leader>"', ':PIOUploadAndSerial<CR>')
 
 -- nvim-tree
-require("nvim-tree").setup()
-map('n', '<leader>n', ':NvimTreeFocus<CR>', {})
+require("nvim-tree").setup {
+  view = { side = 'right' }
+}
+map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 cmd[[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 
