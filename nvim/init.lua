@@ -33,6 +33,7 @@ Plug 'BurntSushi/ripgrep'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'NvChad/nvterm'
 
 Plug 'majormajors/vim-pio'
 
@@ -109,13 +110,26 @@ cmd[[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 g.airline_powerline_fonts = true
 g.airline_theme = 'molokai'
 
---Telescope setup
+-- Telescope setup
 local telescope = require('telescope.builtin')
 map('n', '<leader>ff', telescope.find_files, {})
 map('n', '<leader>fg', telescope.live_grep, {})
 map('n', '<leader>fb', telescope.buffers, {})
 map('n', '<leader>fh', telescope.help_tags, {})
 map('n', '<leader>fi', telescope.highlights, {})
+
+-- nvterm setup
+require('nvterm').setup()
+local terminal = require('nvterm.terminal')
+map('n', '<leader>tf', function()
+  terminal.toggle 'float'
+end, {})
+map('n', '<leader>th', function()
+  terminal.toggle 'horizontal'
+end, {})
+map('n', '<leader>tv', function()
+  terminal.toggle 'vertical'
+end, {})
 
 -- Set up nvim-cmp.
 local cmp = require'cmp'
@@ -124,10 +138,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   window = {
