@@ -10,6 +10,7 @@ Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -34,6 +35,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'NvChad/nvterm'
+Plug 'tpope/vim-obsession'
 
 Plug 'majormajors/vim-pio'
 
@@ -108,7 +110,7 @@ cmd[[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 
 -- Airline
 g.airline_powerline_fonts = true
-g.airline_theme = 'molokai'
+g.airline_theme = 'murmur'
 
 -- Telescope setup
 local telescope = require('telescope.builtin')
