@@ -36,6 +36,8 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'NvChad/nvterm'
 Plug 'tpope/vim-obsession'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'romgrk/barbar.nvim'
 
 Plug 'majormajors/vim-pio'
 
@@ -119,6 +121,8 @@ map('n', '<leader>fg', telescope.live_grep, {})
 map('n', '<leader>fb', telescope.buffers, {})
 map('n', '<leader>fh', telescope.help_tags, {})
 map('n', '<leader>fi', telescope.highlights, {})
+cmd[[hi TelescopeNormal guibg=NONE ctermbg=NONE]]
+cmd[[hi TelescopeBorder guibg=NONE ctermbg=NONE]]
 
 -- nvterm setup
 require('nvterm').setup()
@@ -250,3 +254,40 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+local tabopts = { noremap = true, silent = true }
+-- Move to previous/next
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', tabopts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', tabopts)
+-- Re-order to previous/next
+map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', tabopts)
+map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', tabopts)
+-- Goto buffer in position...
+map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', tabopts)
+map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', tabopts)
+map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', tabopts)
+map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', tabopts)
+map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', tabopts)
+map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', tabopts)
+map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', tabopts)
+map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', tabopts)
+map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', tabopts)
+map('n', '<A-0>', '<Cmd>BufferLast<CR>', tabopts)
+-- Pin/unpin buffer
+map('n', '<A-p>', '<Cmd>BufferPin<CR>', tabopts)
+-- Close buffer
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', tabopts)
+-- Wipeout buffer
+--                 :BufferWipeout
+-- Close commands
+--                 :BufferCloseAllButCurrent
+--                 :BufferCloseAllButPinned
+--                 :BufferCloseAllButCurrentOrPinned
+--                 :BufferCloseBuffersLeft
+--                 :BufferCloseBuffersRight
+-- Magic buffer-picking mode
+map('n', '<C-p>', '<Cmd>BufferPick<CR>', tabopts)
+-- Sort automatically by...
+map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', tabopts)
+map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', tabopts)
+map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', tabopts)
+map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', tabopts)
