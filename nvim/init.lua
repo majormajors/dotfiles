@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -38,6 +39,8 @@ Plug 'NvChad/nvterm'
 Plug 'tpope/vim-obsession'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-neorg/neorg'
 
 Plug 'majormajors/vim-pio'
 
@@ -137,8 +140,23 @@ map('n', '<leader>tv', function()
   terminal.toggle 'vertical'
 end, {})
 
+-- neorg
+require('neorg').setup {
+    load = {
+        ["core.defaults"] = {},
+        ["core.dirman"] = {
+            config = {
+                workspaces = {
+                    work = "~/notes/projects",
+                    home = "~/notes/personal",
+                }
+            }
+        }
+    }
+}
+
 -- Set up nvim-cmp.
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
@@ -209,10 +227,23 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
     command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\' | exe \'silent! edit\''
 })
 
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
+
+local rt = require("rust-tools")
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
+})
+
 lspconfig['clangd'].setup {
   capabilities = capabilities,
 }
@@ -236,6 +267,7 @@ lspconfig['pylsp'].setup{}
 lspconfig['volar'].setup{
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
+
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
