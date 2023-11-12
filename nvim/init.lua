@@ -178,10 +178,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'vsnip' },
   }, {
     { name = 'buffer' },
   })
@@ -221,17 +218,16 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
     group = autoformat_group,
     command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\' | exe \'silent! edit\''
 })
-vim.api.nvim_create_autocmd({'BufWritePre'}, {
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'*.py'},
     group = autoformat_group,
-    command = 'silent! :%!yapf'
+    command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\' | exe \'silent! edit\''
 })
-vim.api.nvim_create_autocmd({'BufWritePre'}, {
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'*.rs'},
     group = autoformat_group,
-    command = 'silent! :%!rustfmt --edition=2021 --color=never --emit=stdout'
+    command = 'exe \'silent! ![[ -x "$(which rustfmt)" ]] && rustfmt --edition=2021 --color=never %\' | exe \'silent! edit\''
 })
-
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
