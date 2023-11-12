@@ -221,10 +221,15 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
     group = autoformat_group,
     command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\' | exe \'silent! edit\''
 })
-vim.api.nvim_create_autocmd({'BufWritePost'}, {
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
     pattern = {'*.py'},
     group = autoformat_group,
-    command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\' | exe \'silent! edit\''
+    command = 'silent! :%!yapf'
+})
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
+    pattern = {'*.rs'},
+    group = autoformat_group,
+    command = 'silent! :%!rustfmt --edition=2021 --color=never --emit=stdout'
 })
 
 
