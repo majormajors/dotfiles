@@ -41,6 +41,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-neorg/neorg'
+Plug 'kylechui/nvim-surround'
 
 Plug 'majormajors/vim-pio'
 
@@ -98,6 +99,8 @@ fm.setup {
   theme = 'retrowave'
 }
 cmd.colorscheme('fluoromachine')
+
+require('nvim-surround').setup {}
 
 -- PIO
 g.pio_serial_port = '/dev/ttyUSB0'
