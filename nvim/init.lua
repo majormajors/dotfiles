@@ -95,7 +95,7 @@ local fm = require 'fluoromachine'
 fm.setup {
   glow = false,
   transparent = true,
-  theme = 'delta'
+  theme = 'retrowave'
 }
 cmd.colorscheme('fluoromachine')
 
