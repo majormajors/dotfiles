@@ -16,6 +16,7 @@ set $right l
 # Your preferred terminal emulator
 #set $term konsole
 set $term footclient
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -36,7 +37,7 @@ for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 for_window [title="^(?:Android Emulator|Emulator)"] floating enable
 
 # terminal transparency
-for_window [app_id="foot"] opacity 0.9
+for_window [app_id="foot"] opacity 0.95
 
 # VM floating
 for_window [app_id="virt-manager"] floating enable
