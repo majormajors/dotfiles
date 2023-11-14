@@ -42,6 +42,11 @@ Plug 'romgrk/barbar.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-neorg/neorg'
 Plug 'kylechui/nvim-surround'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'folke/neodev.nvim'
 
 Plug 'majormajors/vim-pio'
 
@@ -100,7 +105,32 @@ fm.setup {
 }
 cmd.colorscheme('fluoromachine')
 
-require('nvim-surround').setup {}
+require("mason").setup()
+require("mason-lspconfig").setup {
+  ensure_installed = {
+    'lua_ls',
+    'rust_analyzer',
+    'ansiblels',
+    'bashls',
+    'pylsp',
+  }
+}
+
+require('nvim-surround').setup()
+
+-- dapui for debugging
+local dap, dapui = require('dap'), require('dapui')
+dapui.setup {}
+dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+dap.listeners.before.event_exited['dapui_config'] = dapui.close
+map('n', '<Leader>dt', ':DapToggleBreakpoint<CR>')
+map('n', '<Leader>dx', ':DapTerminate<CR>')
+map('n', '<Leader>do', ':DapStepOver<CR>')
+
+require("neodev").setup {
+  library = { plugins = { "nvim-dap-ui" }, types = true },
+}
 
 -- PIO
 g.pio_serial_port = '/dev/ttyUSB0'
@@ -237,14 +267,29 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
 local rt = require("rust-tools")
+local rt_dap = require("rust-tools.dap")
+local mason_registry = require('mason-registry')
+local codelldb = mason_registry.get_package('codelldb')
+local extension_path = codelldb:get_install_path() .. '/extension/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 rt.setup({
+  dap = {
+    rt_dap.get_codelldb_adapter(codelldb_path, liblldb_path),
+  },
   server = {
+    capabilities = capabilities,
     on_attach = function(_, bufnr)
       -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      vim.keymap.set("n", "<Leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
       -- Code action groups
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
+  },
+  tools = {
+    hover_actions = {
+      auto_focus = true,
+    },
   },
 })
 
@@ -267,8 +312,8 @@ lspconfig['lua_ls'].setup {
     }
   }
 }
-lspconfig['pylsp'].setup{}
-lspconfig['volar'].setup{
+lspconfig['pylsp'].setup {}
+lspconfig['volar'].setup {
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
 
@@ -280,10 +325,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', 'gD', vim.lsp.buf.declaration, opts)
     map('n', 'gd', vim.lsp.buf.definition, opts)
     map('n', 'K', vim.lsp.buf.hover, opts)
+    map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     map('n', 'gi', vim.lsp.buf.implementation, opts)
     map('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
     map('n', '<Leader>rn', vim.lsp.buf.rename, opts)
     map('n', 'gr', vim.lsp.buf.references, opts)
+    map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     map('n', '<Leader>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
