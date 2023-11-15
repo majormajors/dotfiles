@@ -267,15 +267,15 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
 local rt = require("rust-tools")
-local rt_dap = require("rust-tools.dap")
 local mason_registry = require('mason-registry')
 local codelldb = mason_registry.get_package('codelldb')
 local extension_path = codelldb:get_install_path() .. '/extension/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+local rt_dap = require("rust-tools.dap")
 rt.setup({
   dap = {
-    rt_dap.get_codelldb_adapter(codelldb_path, liblldb_path),
+    adapter = rt_dap.get_codelldb_adapter(codelldb_path, liblldb_path),
   },
   server = {
     capabilities = capabilities,
