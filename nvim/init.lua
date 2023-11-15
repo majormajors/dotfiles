@@ -47,6 +47,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'folke/neodev.nvim'
+Plug 'stevearc/overseer.nvim'
 
 Plug 'majormajors/vim-pio'
 
@@ -115,6 +116,8 @@ require("mason-lspconfig").setup {
     'pylsp',
   }
 }
+
+require('overseer').setup()
 
 require('nvim-surround').setup()
 
