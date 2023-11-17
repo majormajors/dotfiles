@@ -48,6 +48,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'folke/neodev.nvim'
 Plug 'stevearc/overseer.nvim'
+Plug 'ggandor/leap.nvim'
 
 Plug 'majormajors/vim-pio'
 
@@ -116,6 +117,8 @@ require("mason-lspconfig").setup {
     'pylsp',
   }
 }
+
+require('leap').add_default_mappings()
 
 require('overseer').setup()
 
