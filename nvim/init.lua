@@ -152,6 +152,10 @@ map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 cmd[[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 
+cmd[[hi CursorLineNR guifg=Yellow ctermfg=Yellow]]
+cmd[[set cursorline]]
+cmd[[set cursorlineopt=number]]
+
 -- Airline
 g.airline_powerline_fonts = true
 g.airline_theme = 'murmur'
