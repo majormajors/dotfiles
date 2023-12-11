@@ -275,6 +275,7 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
+local lspconfig_util = require('lspconfig.util')
 
 local rt = require("rust-tools")
 local mason_registry = require('mason-registry')
@@ -303,13 +304,22 @@ rt.setup({
   },
 })
 
-lspconfig['clangd'].setup {
+lspconfig['ansiblels'].setup {
   capabilities = capabilities,
+  settings = {
+    filetypes = { 'yaml.ansible', 'yaml', 'yml' },
+  },
+}
+lspconfig['asm_lsp'].setup {
+  filetypes = { 'asm', 's', 'S' },
+  root_dir = function(fname)
+    return lspconfig_util.root_pattern('main.asm', 'main.S', 'Makefile')(fname)
+  end,
 }
 lspconfig['bashls'].setup {
   capabilities = capabilities,
 }
-lspconfig['ansiblels'].setup {
+lspconfig['clangd'].setup {
   capabilities = capabilities,
 }
 lspconfig['lua_ls'].setup {
@@ -326,6 +336,7 @@ lspconfig['pylsp'].setup {}
 lspconfig['volar'].setup {
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
+lspconfig['zls'].setup{}
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
