@@ -10,7 +10,6 @@ Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -49,6 +48,7 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'folke/neodev.nvim'
 Plug 'stevearc/overseer.nvim'
 Plug 'ggandor/leap.nvim'
+Plug('catppuccin/nvim', { as = 'catppuccin' })
 
 Plug 'majormajors/vim-pio'
 
@@ -99,13 +99,7 @@ map('', '<Right>', ':wincmd l<CR>')
 map('', '<Leader>=', ':wincmd =<CR>')
 
 -- set colorscheme
-local fm = require 'fluoromachine'
-fm.setup {
-  glow = false,
-  transparent = true,
-  theme = 'retrowave'
-}
-cmd.colorscheme('fluoromachine')
+cmd.colorscheme('catppuccin-mocha')
 
 require("mason").setup()
 require("mason-lspconfig").setup {
