@@ -1,23 +1,4 @@
-@define-color background #261f32;
-@define-color foreground #f2ebe0;
-
-@define-color color0 #393939;
-@define-color color1 #f625a3;
-@define-color color2 #66edad;
-@define-color color3 #ff7f32;
-@define-color color4 #03edf9;
-@define-color color5 #de3cf7;
-@define-color color6 #91eed9;
-@define-color color7 #f2ebe0;
-
-@define-color color0-bright #747369;
-@define-color color1-bright #b31a77;
-@define-color color2-bright #40946d;
-@define-color color3-bright #ad5621;
-@define-color color4-bright #018890;
-@define-color color5-bright #a52dba;
-@define-color color6-bright #67aa9a;
-@define-color color7-bright #f2ebe0;
+@import "mocha.css";
 
 * {
     border: none;
@@ -25,11 +6,12 @@
     font-family: MesloLGS Nerd Font, DejaVuSansMono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     min-height: 0;
+    color: @text;
 }
 
 window#waybar {
-    background-color: @background;
-    color: @foreground;
+    background-color: shade(@base, 0.9);
+    border: 2px solid alpha(@crust, 0.3);
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -50,24 +32,24 @@ window#waybar.solo {
 #workspaces button {
     padding: 0 8px;
     background-color: transparent;
-    color: @color7;
+    color: @lavender;
     border-bottom: 3px solid transparent;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: #434C5E;
+    background: @overlay0;
     box-shadow: inherit;
-    border-bottom: 3px solid @color5;
+    border-bottom: 3px solid @lavender;
 }
 
 #workspaces button.focused {
-    background-color: #4C566A;
-    border-bottom: 3px solid @color5;
+    background-color: @overlay0;
+    border-bottom: 3px solid @sapphire;
 }
 
 #workspaces button.urgent {
-    background-color: @color1;
+    background-color: @peach;
 }
 
 #mode {
@@ -90,11 +72,11 @@ window#waybar.solo {
 #mpd {
     padding: 0 3px;
     margin: 0 4px;
-    color: #eceff4;
+    color: @text;
 }
 
 #battery.charging {
-    color: @color2;
+    color: @green;
 }
 
 @keyframes blink {
@@ -104,7 +86,7 @@ window#waybar.solo {
 }
 
 #battery.critical:not(.charging) {
-    color: @color1;
+    color: @red;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -113,16 +95,12 @@ window#waybar.solo {
 }
 
 label:focus {
-    background-color: @color7;
+    background-color: @text;
 }
 
 #custom-media {
     color: #2a5c45;
     min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
 }
 
 #custom-media.custom-vlc {
