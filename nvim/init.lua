@@ -132,6 +132,12 @@ require("neodev").setup {
   library = { plugins = { "nvim-dap-ui" }, types = true },
 }
 
+map('n', '<Space>e', vim.diagnostic.open_float)
+map('n', '<Space>q', vim.diagnostic.setloclist)
+map('n', '<Leader>dj', vim.diagnostic.goto_next)
+map('n', '<Leader>dk', vim.diagnostic.goto_prev)
+
+
 -- PIO
 g.pio_serial_port = '/dev/ttyUSB0'
 g.pio_serial_baud_rate = 115200
