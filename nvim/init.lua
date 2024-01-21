@@ -311,6 +311,7 @@ lspconfig['ansiblels'].setup {
   },
 }
 lspconfig['asm_lsp'].setup {
+  capabilities = capabilities,
   filetypes = { 'asm', 's', 'S' },
   root_dir = function(fname)
     return lspconfig_util.root_pattern('main.asm', 'main.S', 'Makefile')(fname)
@@ -322,6 +323,10 @@ lspconfig['bashls'].setup {
 lspconfig['clangd'].setup {
   capabilities = capabilities,
 }
+lspconfig['html'].setup {
+  capabilities = capabilities,
+  filetypes = { "html", "htm", "css" },
+}
 lspconfig['lua_ls'].setup {
   capabilities = capabilities,
   settings = {
@@ -332,11 +337,19 @@ lspconfig['lua_ls'].setup {
     }
   }
 }
-lspconfig['pylsp'].setup {}
+lspconfig['pylsp'].setup {
+  capabilities = capabilities
+}
+lspconfig['tsserver'].setup {
+  capabilities = capabilities,
+}
 lspconfig['volar'].setup {
+  capabilities = capabilities,
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
-lspconfig['zls'].setup{}
+lspconfig['zls'].setup{
+  capabilities = capabilities
+}
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
