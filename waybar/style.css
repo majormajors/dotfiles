@@ -6,7 +6,6 @@
     font-family: MesloLGS Nerd Font, DejaVuSansMono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     min-height: 0;
-    color: @text;
 }
 
 window#waybar {
