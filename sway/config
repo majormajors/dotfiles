@@ -53,7 +53,7 @@ for_window [title="Welcome to IntelliJ IDEA"] floating enable
 #bindsym $mod+grave yakuake
 
 # startup programs
-exec --no-startup-id kanshi &
+#exec --no-startup-id kanshi &
 exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id foot --server &
