@@ -38,7 +38,6 @@ Plug 'tpope/vim-obsession'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-neorg/neorg'
 Plug 'kylechui/nvim-surround'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -182,21 +181,6 @@ end, {})
 map('n', '<leader>tv', function()
   terminal.toggle 'vertical'
 end, {})
-
--- neorg
-require('neorg').setup {
-    load = {
-        ["core.defaults"] = {},
-        ["core.dirman"] = {
-            config = {
-                workspaces = {
-                    work = "~/notes/projects",
-                    home = "~/notes/personal",
-                }
-            }
-        }
-    }
-}
 
 -- Set up nvim-cmp.
 local cmp = require('cmp')
