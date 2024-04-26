@@ -62,6 +62,7 @@ exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id foot --server &
 exec --no-startup-id udiskie --appindicator &
+exec --no-startup-id fcitx5 &
 
 # volume controls
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
