@@ -31,7 +31,7 @@ gaps inner 5
 gaps outer 5
 
 # KeePassXC floating
-for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+for_window [class="KeePassXC"] floating enable
 
 # Android Emulator floating
 for_window [title="^(?:Android Emulator|Emulator)"] floating enable
@@ -47,6 +47,10 @@ for_window [title="TigerVNC$"] floating enable
 
 # IDEA
 for_window [title="Welcome to IntelliJ IDEA"] floating enable
+
+# Inhibit idle for fullscreen video
+for_window [app_id="Librewolf"] inhibit_idle fullscreen
+for_window [class="vlc"] inhibit_idle fullscreen
 
 # drop-down terminal
 #for_window [app_id="org.kde.yakuake"] floating enable, border none, move absolute position 0 0
