@@ -89,7 +89,7 @@ include ~/.config/sway/config.local
 #output eDP-1 pos 0 0 res 1920x1080
 #output HDMI-A-2 pos 0 0 res 1920x1200
 #output HDMI-A-1 pos 1920 0 res 1920x1080
-output * bg ~/.wallpaper stretch
+output * bg ~/.wallpaper fill
 #
 # Example configuration:
 #
