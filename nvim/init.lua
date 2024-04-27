@@ -108,6 +108,8 @@ require("mason-lspconfig").setup {
     'ansiblels',
     'bashls',
     'pylsp',
+    'clangd',
+    'mesonlsp'
   }
 }
 
@@ -331,8 +333,12 @@ lspconfig['volar'].setup {
   capabilities = capabilities,
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
-lspconfig['zls'].setup{
+lspconfig['zls'].setup {
   capabilities = capabilities
+}
+lspconfig['mesonlsp'].setup {
+  capabilities = capabilities,
+  root_dir = lspconfig_util.root_pattern("meson_options.txt", "meson.options", ".git", ".hg")
 }
 
 
