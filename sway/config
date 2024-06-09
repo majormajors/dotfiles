@@ -71,8 +71,11 @@ bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -R
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
 
 bindsym XF86AudioPrev exec strawberry -r
+bindsym $mod+Comma exec strawberry -r
 bindsym XF86AudioNext exec strawberry -f
+bindsym $mod+Period exec strawberry -f
 bindsym XF86AudioPlay exec strawberry -t
+bindsym $mod+Semicolon exec strawberry -t
 
 # display brightness
 bindsym XF86MonBrightnessUp exec light -A 10
