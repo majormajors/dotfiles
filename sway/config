@@ -49,6 +49,9 @@ for_window [title="TigerVNC$"] floating enable
 # IDEA
 for_window [title="Welcome to IntelliJ IDEA"] floating enable
 
+# GalaxyBudsClient
+for_window [class="GalaxyBudsClient"] floating enable
+
 # Inhibit idle for fullscreen video
 for_window [app_id="Librewolf"] inhibit_idle fullscreen
 for_window [class="vlc"] inhibit_idle fullscreen
