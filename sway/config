@@ -38,7 +38,7 @@ for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 for_window [title="^(?:Android Emulator|Emulator)"] floating enable
 
 # terminal transparency
-for_window [app_id="foot"] opacity 0.95
+for_window [app_id="foot"] opacity 0.75
 
 # VM floating
 for_window [app_id="virt-manager"] floating enable
