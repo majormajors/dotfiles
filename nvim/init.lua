@@ -341,6 +341,7 @@ lspconfig['mesonlsp'].setup {
   capabilities = capabilities,
   root_dir = lspconfig_util.root_pattern("meson_options.txt", "meson.options", ".git", ".hg")
 }
+lspconfig['perlnavigator'].setup({})
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
