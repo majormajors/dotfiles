@@ -4,7 +4,6 @@ default_border pixel 1
 default_floating_border normal
 
 hide_edge_borders none
-
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
@@ -156,6 +155,7 @@ for_window [class="Xfburn"] floating enable
 for_window [class="kakaotalk.exe"] floating enable
 for_window [class="vncviewer"] floating enable
 for_window [class="zoom"] floating enable
+for_window [class="Drawing"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
