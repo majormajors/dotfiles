@@ -66,6 +66,7 @@ exec --no-startup-id mako
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id foot --server &
 exec --no-startup-id udiskie --appindicator &
+exec --no-startup-id blueman-applet &
 #exec --no-startup-id fcitx5 &
 
 # volume controls
