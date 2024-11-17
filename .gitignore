@@ -5,3 +5,7 @@
 
 /tmux/plugins/*
 !/tmux/plugins/tpm
+
+/fluxbox/fbrun_history
+/fluxbox/lastwallpaper
+/fluxbox/slitlist
