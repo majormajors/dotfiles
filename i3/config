@@ -134,9 +134,6 @@ for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
@@ -157,6 +154,7 @@ for_window [class="vncviewer"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="Drawing"] floating enable
 for_window [class="KeePassXC"] floating enable
+for_window [class="battle.net.exe"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -214,7 +212,7 @@ mode "resize" {
 }
 
 # Autostart applications
-exec_always --no-startup-id autorandr -c && ~/.fehbg
+exec_always --no-startup-id ~/.local/bin/autorandr -c && ~/.fehbg
 exec --no-startup-id dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY &
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets &
 exec --no-startup-id xsettingsd &
