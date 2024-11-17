@@ -19,6 +19,7 @@ picom &
 
 {
   sleep 1
+  xscreensaver &
   $HOME/.local/bin/autorandr -c
   $HOME/.fehbg
 } &

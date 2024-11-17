@@ -50,6 +50,7 @@ Mod4 t :ToggleDecor
 
 # open a terminal
 Mod1 F1 :Exec xterm
+Mod4 Return :Exec alacritty
 
 # open a dialog to run programs
 Mod1 F2 :Exec fbrun
@@ -70,9 +71,9 @@ Mod4 107 :Exec scrot -s
 121 :Exec amixer set Master toggle
 
 # media keys
-171 :Exec strawberry --next
-172 :Exec strawberry --play-pause
-173 :Exec strawberry --previous
+171 :Exec playerctl -a next
+172 :Exec playerctl -a play-pause 
+173 :Exec playerctl -a previous
 
 # current window commands
 Mod1 F4 :Close
