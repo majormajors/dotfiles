@@ -74,12 +74,15 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -R
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
 
-bindsym XF86AudioPrev exec strawberry -r
-bindsym $mod+Comma exec strawberry -r
-bindsym XF86AudioNext exec strawberry -f
-bindsym $mod+Period exec strawberry -f
-bindsym XF86AudioPlay exec strawberry -t
-bindsym $mod+Semicolon exec strawberry -t
+set $player_next playerctl -a next
+set $player_prev playerctl -a previous 
+set $player_toggle playerctl -a play-pause
+bindsym XF86AudioPrev exec $player_prev
+bindsym $mod+Comma exec $player_prev
+bindsym XF86AudioNext exec $player_next
+bindsym $mod+Period exec $player_next
+bindsym XF86AudioPlay exec $player_toggle
+bindsym $mod+Semicolon exec $player_toggle
 
 # display brightness
 bindsym XF86MonBrightnessUp exec light -A 10
