@@ -246,17 +246,22 @@ local autoformat_group = vim.api.nvim_create_augroup('autoformat', { clear = tru
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze'},
     group = autoformat_group,
-    command = 'exe \'silent! ![[ -x "$(which buildifier)" ]] && buildifier %\' | exe \'silent! edit\''
+    command = 'exe \'silent! !sh -c "[[ -x "$(which buildifier)" ]] && buildifier %"\' | exe \'silent! edit\''
 })
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'*.py'},
     group = autoformat_group,
-    command = 'exe \'silent! ![[ -x "$(which yapf)" ]] && yapf -i --style=google %\' | exe \'silent! edit\''
+    command = 'exe \'silent! !sh -c "[[ -x "$(which yapf)" ]] && yapf -i --style=google %"\' | exe \'silent! edit\''
 })
 vim.api.nvim_create_autocmd({'BufWritePost'}, {
     pattern = {'*.rs'},
     group = autoformat_group,
-    command = 'exe \'silent! ![[ -x "$(which rustfmt)" ]] && rustfmt --edition=2021 --color=never %\' | exe \'silent! edit\''
+    command = 'exe \'silent! !sh -c "[[ -x "$(which rustfmt)" ]] && rustfmt --edition=2021 --color=never %"\' | exe \'silent! edit\''
+})
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
+    pattern = {'*.h', '*.c', '*.cpp'},
+    group = autoformat_group,
+    command = 'exe \'silent! !sh -c "[[ -x "$(which clang-format)" ]] && clang-format -i %"\' | exe \'silent! edit\''
 })
 
 -- Set up lspconfig.
