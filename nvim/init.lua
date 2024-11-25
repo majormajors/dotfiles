@@ -169,6 +169,9 @@ map('n', '<leader>fg', telescope.live_grep, {})
 map('n', '<leader>fb', telescope.buffers, {})
 map('n', '<leader>fh', telescope.help_tags, {})
 map('n', '<leader>fi', telescope.highlights, {})
+map('n', '<leader>ft', telescope.treesitter, {})
+map('n', '<leader>gb', telescope.git_branches, {})
+map('n', '<leader>gc', telescope.git_commits, {})
 cmd[[hi TelescopeNormal guibg=NONE ctermbg=NONE]]
 cmd[[hi TelescopeBorder guibg=NONE ctermbg=NONE]]
 
