@@ -39,8 +39,8 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'kylechui/nvim-surround'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
+Plug('mason-org/mason.nvim', { tag = 'v1.11.0' })
+Plug('mason-org/mason-lspconfig.nvim', { tag = 'v1.32.0' })
 Plug 'nvim-neotest/nvim-nio'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
