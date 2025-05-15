@@ -56,6 +56,10 @@ window#waybar.solo {
     border-bottom: 3px solid #eceff4;
 }
 
+.module {
+    color: @text;
+}
+
 #clock,
 #battery,
 #cpu,
@@ -68,7 +72,8 @@ window#waybar.solo {
 #tray,
 #mode,
 #idle_inhibitor,
-#mpd {
+#mpd,
+#window {
     padding: 0 3px;
     margin: 0 4px;
     color: @text;
