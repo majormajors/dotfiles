@@ -1,6 +1,9 @@
 [user]
 	email = majors@majors.email
-	name = Majors
+	name = majors
+	signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6nrd0zZZ17VM2hzZugeJA4LCvsSbQ0+EpTpwW9ZRRF majors"
+[gpg]
+	format = ssh
 [push]
 	default = simple
 [alias]
