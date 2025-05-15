@@ -172,6 +172,7 @@ map('n', '<leader>fi', telescope.highlights, {})
 map('n', '<leader>ft', telescope.treesitter, {})
 map('n', '<leader>gb', telescope.git_branches, {})
 map('n', '<leader>gc', telescope.git_commits, {})
+map('n', '<leader>mp', telescope.man_pages, {})
 cmd[[hi TelescopeNormal guibg=NONE ctermbg=NONE]]
 cmd[[hi TelescopeBorder guibg=NONE ctermbg=NONE]]
 
@@ -261,11 +262,11 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
     group = autoformat_group,
     command = 'exe \'silent! !sh -c "[[ -x "$(which rustfmt)" ]] && rustfmt --edition=2021 --color=never %"\' | exe \'silent! edit\''
 })
-vim.api.nvim_create_autocmd({'BufWritePost'}, {
-    pattern = {'*.h', '*.c', '*.cpp'},
-    group = autoformat_group,
-    command = 'exe \'silent! !sh -c "[[ -x "$(which clang-format)" ]] && clang-format -i %"\' | exe \'silent! edit\''
-})
+--vim.api.nvim_create_autocmd({'BufWritePost'}, {
+--    pattern = {'*.h', '*.c', '*.cpp'},
+--    group = autoformat_group,
+--    command = 'exe \'silent! !sh -c "[[ -x "$(which clang-format)" ]] && clang-format -i %"\' | exe \'silent! edit\''
+--})
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
