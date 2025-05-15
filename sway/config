@@ -62,12 +62,13 @@ for_window [class="vlc"] inhibit_idle fullscreen
 
 # startup programs
 exec --no-startup-id kanshi &
-exec --no-startup-id mako
-exec --no-startup-id nm-applet --indicator
+exec --no-startup-id mako &
+exec --no-startup-id nm-applet --indicator &
 exec --no-startup-id foot --server &
 exec --no-startup-id udiskie --appindicator &
 exec --no-startup-id blueman-applet &
-#exec --no-startup-id fcitx5 &
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr -r &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # volume controls
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
