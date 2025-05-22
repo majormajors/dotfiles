@@ -360,8 +360,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local tabopts = { noremap = true, silent = true }
 -- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', tabopts)
-map('n', '<A-.>', '<Cmd>BufferNext<CR>', tabopts)
+map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', tabopts)
+map('n', '<A-l>', '<Cmd>BufferNext<CR>', tabopts)
 -- Re-order to previous/next
 map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', tabopts)
 map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', tabopts)
@@ -379,7 +379,8 @@ map('n', '<A-0>', '<Cmd>BufferLast<CR>', tabopts)
 -- Pin/unpin buffer
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', tabopts)
 -- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', tabopts)
+map('n', '<C-w>', '<Cmd>BufferClose<CR>', tabopts)
+map('n', '<A-w>', '<Cmd>BufferCloseAllButCurrentOrPinned<CR>', tabopts)
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -390,6 +391,7 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', tabopts)
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', tabopts)
+map('n', '<C-d>', '<Cmd>BufferPickDelete<CR>', tabopts)
 -- Sort automatically by...
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', tabopts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', tabopts)
