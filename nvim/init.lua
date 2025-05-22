@@ -247,26 +247,12 @@ cmp.setup.cmdline(':', {
 
 -- configure autoformatters 
 local autoformat_group = vim.api.nvim_create_augroup('autoformat', { clear = true })
-vim.api.nvim_create_autocmd({'BufWritePost'}, {
-    pattern = {'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze'},
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
     group = autoformat_group,
-    command = 'exe \'silent! !sh -c "[[ -x "$(which buildifier)" ]] && buildifier %"\' | exe \'silent! edit\''
+    callback = function()
+        vim.lsp.buf.format { async = true }
+    end
 })
-vim.api.nvim_create_autocmd({'BufWritePost'}, {
-    pattern = {'*.py'},
-    group = autoformat_group,
-    command = 'exe \'silent! !sh -c "[[ -x "$(which yapf)" ]] && yapf -i --style=google %"\' | exe \'silent! edit\''
-})
-vim.api.nvim_create_autocmd({'BufWritePost'}, {
-    pattern = {'*.rs'},
-    group = autoformat_group,
-    command = 'exe \'silent! !sh -c "[[ -x "$(which rustfmt)" ]] && rustfmt --edition=2021 --color=never %"\' | exe \'silent! edit\''
-})
---vim.api.nvim_create_autocmd({'BufWritePost'}, {
---    pattern = {'*.h', '*.c', '*.cpp'},
---    group = autoformat_group,
---    command = 'exe \'silent! !sh -c "[[ -x "$(which clang-format)" ]] && clang-format -i %"\' | exe \'silent! edit\''
---})
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
