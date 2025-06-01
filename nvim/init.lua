@@ -151,12 +151,12 @@ require("nvim-tree").setup {
   view = { side = 'left' }
 }
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
-cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
-cmd[[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
+cmd [[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
+cmd [[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 
-cmd[[hi CursorLineNR guifg=Yellow ctermfg=Yellow]]
-cmd[[set cursorline]]
-cmd[[set cursorlineopt=number]]
+cmd [[hi CursorLineNR guifg=Yellow ctermfg=Yellow]]
+cmd [[set cursorline]]
+cmd [[set cursorlineopt=number]]
 
 -- Airline
 g.airline_powerline_fonts = true
@@ -173,8 +173,8 @@ map('n', '<leader>ft', telescope.treesitter, {})
 map('n', '<leader>gb', telescope.git_branches, {})
 map('n', '<leader>gc', telescope.git_commits, {})
 map('n', '<leader>mp', telescope.man_pages, {})
-cmd[[hi TelescopeNormal guibg=NONE ctermbg=NONE]]
-cmd[[hi TelescopeBorder guibg=NONE ctermbg=NONE]]
+cmd [[hi TelescopeNormal guibg=NONE ctermbg=NONE]]
+cmd [[hi TelescopeBorder guibg=NONE ctermbg=NONE]]
 
 -- nvterm setup
 require('nvterm').setup()
@@ -245,13 +245,13 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- configure autoformatters 
+-- configure autoformatters
 local autoformat_group = vim.api.nvim_create_augroup('autoformat', { clear = true })
-vim.api.nvim_create_autocmd({'BufWritePre'}, {
-    group = autoformat_group,
-    callback = function()
-        vim.lsp.buf.format { async = true }
-    end
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  group = autoformat_group,
+  callback = function()
+    vim.lsp.buf.format()
+  end
 })
 
 -- Set up lspconfig.
@@ -327,7 +327,7 @@ lspconfig['ts_ls'].setup {
 }
 lspconfig['volar'].setup {
   capabilities = capabilities,
-  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
 }
 lspconfig['zls'].setup {
   capabilities = capabilities
