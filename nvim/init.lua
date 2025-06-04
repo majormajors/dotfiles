@@ -11,7 +11,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/nvim-lspconfig'
-Plug 'simrat39/rust-tools.nvim'
+Plug 'mrcjkb/rustaceanvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -254,37 +254,26 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   end
 })
 
+-- set up rustaceanvim with codelldb
+vim.g.rustaceanvim = function()
+  local mason_registry = require('mason-registry')
+  local codelldb = mason_registry.get_package('codelldb')
+  local extension_path = codelldb:get_install_path() .. '/extension/'
+  local codelldb_path = extension_path .. 'adapter/codelldb'
+  local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
+  local cfg = require('rustaceanvim.config')
+  return {
+    dap = {
+      adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+    },
+  }
+end
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 local lspconfig_util = require('lspconfig.util')
-
-local rt = require("rust-tools")
-local mason_registry = require('mason-registry')
-local codelldb = mason_registry.get_package('codelldb')
-local extension_path = codelldb:get_install_path() .. '/extension/'
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-local rt_dap = require("rust-tools.dap")
-rt.setup({
-  dap = {
-    adapter = rt_dap.get_codelldb_adapter(codelldb_path, liblldb_path),
-  },
-  server = {
-    capabilities = capabilities,
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<Leader>k", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-  tools = {
-    hover_actions = {
-      auto_focus = true,
-    },
-  },
-})
 
 lspconfig['ansiblels'].setup {
   capabilities = capabilities,
@@ -354,6 +343,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     map('n', '<Leader>f', function()
       vim.lsp.buf.format { async = true }
+    end, opts)
+    map('n', '<Leader>h', function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
     end, opts)
   end,
 })
