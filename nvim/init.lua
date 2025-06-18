@@ -49,6 +49,7 @@ Plug 'stevearc/overseer.nvim'
 Plug 'ggandor/leap.nvim'
 Plug 'kiyoon/nvim-tree-remote.nvim'
 Plug('catppuccin/nvim', { as = 'catppuccin' })
+Plug 'github/copilot.vim'
 
 Plug 'majormajors/vim-pio'
 
