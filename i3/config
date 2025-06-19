@@ -161,6 +161,7 @@ for_window [class="battle.net.exe"] floating enable
 for_window [class="war3.exe"] floating enable
 for_window [instance="steamwebhelper"] floating enable
 for_window [instance="net.lutris.Lutris"] floating enable
+for_window [title="Stimulator"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
