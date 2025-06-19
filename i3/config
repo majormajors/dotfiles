@@ -233,13 +233,17 @@ exec --no-startup-id picom &
 exec --no-startup-id xautolock -locker "i3lock --color 000000" &
 
 # Theme colors
-# class                   border  backgr. text    indic.
-  client.focused          #FFD369 #FFD369 #222831 #FFD369
-  client.focused_inactive #222831 #222831 #FFD369 #222831
-  client.unfocused        #222831 #222831 #FFD369 #222831 
-  client.urgent           #222831 #222831 #E07A31 #222831 
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
-  client.background       #393E46
+set $c_primary #a277ff
+set $c_secondary #61ffca
+set $c_background #15141b
+set $c_text #edecee
+set $c_comment #6d6d6d
+
+# class                  # border       # background   # text   # indicator    # child border
+client.focused           $c_primary     $c_background  $c_text  $c_secondary   $c_primary
+client.focused_inactive  $c_comment     $c_background  $c_text  $c_comment     $c_comment
+client.unfocused         $c_background  $c_background  $c_text  $c_background  $c_background
+client.urgent            $c_secondary   $c_background  $c_text  $c_primary     $c_secondary
 
 # Gaps
 gaps inner 10
