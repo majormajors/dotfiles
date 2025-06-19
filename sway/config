@@ -39,7 +39,7 @@ for_window [title="^(?:Android Emulator|Emulator)"] floating enable
 
 # terminal transparency
 for_window [app_id="foot"] opacity 0.75
-for_window [app_id="Alacritty"] opacity 0.75
+for_window [app_id="Alacritty"] opacity 0.9
 
 # VM floating
 for_window [app_id="virt-manager"] floating enable
@@ -77,7 +77,7 @@ bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -R
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
 
 set $player_next playerctl -a next
-set $player_prev playerctl -a previous 
+set $player_prev playerctl -a previous
 set $player_toggle playerctl -a play-pause
 bindsym XF86AudioPrev exec $player_prev
 bindsym $mod+Comma exec $player_prev
@@ -304,4 +304,4 @@ bar {
 
 
 include /etc/sway/config.d/*
-
+include ~/.config/sway/aura-theme.conf
