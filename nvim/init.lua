@@ -50,6 +50,7 @@ Plug 'ggandor/leap.nvim'
 Plug 'kiyoon/nvim-tree-remote.nvim'
 Plug('catppuccin/nvim', { as = 'catppuccin' })
 Plug 'github/copilot.vim'
+Plug('daltonmenezes/aura-theme', { rtp = 'packages/neovim' })
 
 Plug 'majormajors/vim-pio'
 
@@ -100,7 +101,7 @@ map('', '<Right>', ':wincmd l<CR>')
 map('', '<Leader>=', ':wincmd =<CR>')
 
 -- set colorscheme
-cmd.colorscheme('catppuccin-mocha')
+cmd.colorscheme('aura-dark')
 
 require("mason").setup()
 require("mason-lspconfig").setup {
