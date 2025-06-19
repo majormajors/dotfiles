@@ -1,49 +1,47 @@
-*background: #2f2f38
-*foreground: #b0c4bb
-*cursorColor: #b0c4bb
+! special
+*.foreground:   #edecee
+*.background:   #110f18
+*.cursorColor:  #a277ff
 
-*color0: #34343e
-*color8: #b0c4bb
-*color1: #9aafaa
-*color9: #9aafaa
-*color2: #759496
-*color10: #759496
-*color3: #93b3b0
-*color11: #93b3b0
-*color4: #688486
-*color12: #81a2be
-*color5: #668ca1
-*color13: #668ca1
-*color6: #759496
-*color14: #759496
-*color7: #b0c4bb
-*color15: #b0c4bb
+! black
+*.color0:       #110f18
+*.color8:       #4d4d4d
 
-URxvt.font: xft:Source Code Pro for Powerline:size=10.5
+! red
+*.color1:       #ff6767
+*.color9:       #ffca85
+
+! green
+*.color2:       #61ffca
+*.color10:      #61ffca
+
+! yellow
+*.color3:       #ffca85
+*.color11:      #ffca85
+
+! blue
+*.color4:       #a277ff
+*.color12:      #a277ff
+
+! magenta
+*.color5:       #a277ff
+*.color13:      #a277ff
+
+! cyan
+*.color6:       #61ffca
+*.color14:      #61ffca
+
+! white
+*.color7:       #edecee
+*.color15:      #edecee
+
+URxvt.font: xft:Terminess Nerd Font:size=12
 URxvt.depth:                      32
-URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
+URxvt*scrollBar: false
 URxvt*cursorBlink:                true
 URxvt*saveLines:                  5000
 URxvt*internalBorder: 5
-URxvt*geometry: 70x19
-
-rofi.color-enabled: true
-rofi.color-window: #34343e, #759496, #759496
-rofi.color-normal: #34343e, #b0c4bb, #759496, #b0c4bb, #78824B
-rofi.color-active: #34343e, #b0c4bb, #759496, #b0c4bb, #78824B
-rofi.color-urgent: #34343e, #b0c4bb, #759496, #b0c4bb, #78824B
-
-rofi.separator-style: solid
-rofi.sidebar-mode: false
-rofi.lines: 5
-rofi.font: Source Code Pro Semibold 10.5
-rofi.bw: 1
-rofi.columns: 2
-rofi.padding: 5
-rofi.fixed-num-lines: true
-rofi.hide-scrollbar: true
-
 ! Normal copy-paste keybindings without perls
 URxvt.iso14755:                   false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
@@ -57,5 +55,8 @@ URxvt.keysym.Control-Up:          \033[1;5A
 URxvt.keysym.Shift-Control-Up:    \033[1;6A
 URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
+
+XTerm*font: xft:Terminess Nerd Font:size=12
+XTerm*scrollBar:                  false
 
 Xcursor.size: 16
