@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 #set $term konsole
-set $term footclient
+set $term alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -23,7 +23,7 @@ set $term footclient
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu rofi -show drun
 set $window_menu rofi -show window
-set $ssh_menu TERMINAL=footclient rofi -show ssh
+set $ssh_menu rofi -show ssh
 
 # borders and gaps
 default_border none
@@ -39,6 +39,7 @@ for_window [title="^(?:Android Emulator|Emulator)"] floating enable
 
 # terminal transparency
 for_window [app_id="foot"] opacity 0.75
+for_window [app_id="Alacritty"] opacity 0.75
 
 # VM floating
 for_window [app_id="virt-manager"] floating enable
@@ -64,7 +65,7 @@ for_window [class="vlc"] inhibit_idle fullscreen
 exec --no-startup-id kanshi &
 exec --no-startup-id mako &
 exec --no-startup-id nm-applet --indicator &
-exec --no-startup-id foot --server &
+#exec --no-startup-id foot --server &
 exec --no-startup-id udiskie --appindicator &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr -r &
