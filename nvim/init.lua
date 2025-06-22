@@ -4,8 +4,6 @@ vim.g.loaded_netrwPlugin = 1
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 
-Plug 'editorconfig/editorconfig-vim'
-Plug 'maxmx03/fluoromachine.nvim'
 Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -162,7 +160,7 @@ cmd [[set cursorlineopt=number]]
 
 -- Airline
 g.airline_powerline_fonts = true
-g.airline_theme = 'murmur'
+g.airline_theme = 'base16'
 
 -- Telescope setup
 local telescope = require('telescope.builtin')
