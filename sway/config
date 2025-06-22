@@ -26,7 +26,10 @@ set $window_menu rofi -show window
 set $ssh_menu rofi -show ssh
 
 # borders and gaps
-default_border none
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders none
+smart_borders on
 gaps inner 5
 gaps outer 5
 
