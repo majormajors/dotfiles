@@ -9,7 +9,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/nvim-lspconfig'
-Plug 'mrcjkb/rustaceanvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -253,27 +252,19 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     vim.lsp.buf.format()
   end
 })
-
--- set up rustaceanvim with codelldb
-vim.g.rustaceanvim = function()
-  local mason_registry = require('mason-registry')
-  local codelldb = mason_registry.get_package('codelldb')
-  local extension_path = codelldb:get_install_path() .. '/extension/'
-  local codelldb_path = extension_path .. 'adapter/codelldb'
-  local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-
-  local cfg = require('rustaceanvim.config')
-  return {
-    dap = {
-      adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
-    },
-  }
-end
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+  pattern = { 'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze' },
+  group = autoformat_group,
+  command = 'exe \'silent! !sh -c "[[ -x "$(which buildifier)" ]] && buildifier %"\' | exe \'silent! edit\''
+})
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 local lspconfig_util = require('lspconfig.util')
+
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('starpls')
 
 lspconfig['ansiblels'].setup {
   capabilities = capabilities,
