@@ -147,7 +147,11 @@ map('n', '<Leader>"', ':PIOUploadAndSerial<CR>')
 
 -- nvim-tree
 require("nvim-tree").setup {
-  view = { side = 'left' }
+  view = { side = 'left' },
+  git = {
+    enable = true,
+    ignore = false,
+  },
 }
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 cmd [[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
