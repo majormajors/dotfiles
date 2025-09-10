@@ -20,3 +20,5 @@
 	recurseSubmodules = on-demand
 [init]
 	defaultBranch = trunk
+[branch]
+	sort = -committerdate
