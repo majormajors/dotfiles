@@ -21,7 +21,6 @@ Plug 'mattn/emmet-vim'
 Plug 'ludovicchabant/vim-lawrencium'
 Plug 'tpope/vim-fugitive'
 Plug 'Fymyte/rasi.vim'
-Plug 'udalov/kotlin-vim'
 Plug 'hashivim/vim-vagrant'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
@@ -102,15 +101,17 @@ cmd.colorscheme('aura-dark')
 
 require("mason").setup()
 require("mason-lspconfig").setup {
-  ensure_installed = {
-    'lua_ls',
-    'rust_analyzer',
-    'ansiblels',
-    'bashls',
-    'pylsp',
-    'clangd',
-    'mesonlsp'
-  }
+	ensure_installed = {
+		'lua_ls',
+		'rust_analyzer',
+		'ansiblels',
+		'bashls',
+		'pylsp',
+		'clangd',
+		'mesonlsp',
+		'perlnavigator',
+		'starpls',
+	}
 }
 
 require('leap').add_default_mappings()
@@ -130,7 +131,7 @@ map('n', '<Leader>dx', ':DapTerminate<CR>')
 map('n', '<Leader>do', ':DapStepOver<CR>')
 
 require("neodev").setup {
-  library = { plugins = { "nvim-dap-ui" }, types = true },
+	library = { plugins = { "nvim-dap-ui" }, types = true },
 }
 
 map('n', '<Space>e', vim.diagnostic.open_float)
@@ -147,11 +148,11 @@ map('n', '<Leader>"', ':PIOUploadAndSerial<CR>')
 
 -- nvim-tree
 require("nvim-tree").setup {
-  view = { side = 'left' },
-  git = {
-    enable = true,
-    ignore = false,
-  },
+	view = { side = 'left' },
+	git = {
+		enable = true,
+		ignore = false,
+	},
 }
 map('n', '<leader>n', ':NvimTreeToggle<CR>', {})
 cmd [[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
@@ -160,6 +161,17 @@ cmd [[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 cmd [[hi CursorLineNR guifg=Yellow ctermfg=Yellow]]
 cmd [[set cursorline]]
 cmd [[set cursorlineopt=number]]
+
+-- treesitter
+local ts = require('nvim-treesitter.configs')
+ts.setup {
+	ensure_installed = { "c", "cpp", "lua", "python", "kotlin", "rust" },
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+}
+
 
 -- Airline
 g.airline_powerline_fonts = true
@@ -183,166 +195,186 @@ cmd [[hi TelescopeBorder guibg=NONE ctermbg=NONE]]
 require('nvterm').setup()
 local terminal = require('nvterm.terminal')
 map('n', '<leader>tf', function()
-  terminal.toggle 'float'
+	terminal.toggle 'float'
 end, {})
 map('n', '<leader>th', function()
-  terminal.toggle 'horizontal'
+	terminal.toggle 'horizontal'
 end, {})
 map('n', '<leader>tv', function()
-  terminal.toggle 'vertical'
+	terminal.toggle 'vertical'
 end, {})
 
 -- Set up nvim-cmp.
 local cmp = require('cmp')
 
 cmp.setup({
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-  }, {
-    { name = 'buffer' },
-  })
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	}),
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'vsnip' },
+	}, {
+		{ name = 'buffer' },
+	})
 })
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
+	sources = cmp.config.sources({
+		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+	}, {
+		{ name = 'buffer' },
+	})
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = 'buffer' }
+	}
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = 'path' }
+	}, {
+		{ name = 'cmdline' }
+	})
 })
 
 -- configure autoformatters
 local autoformat_group = vim.api.nvim_create_augroup('autoformat', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-  group = autoformat_group,
-  callback = function()
-    vim.lsp.buf.format()
-  end
+	group = autoformat_group,
+	callback = function()
+		vim.lsp.buf.format()
+	end
 })
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
-  pattern = { 'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze' },
-  group = autoformat_group,
-  command = 'exe \'silent! !sh -c "[[ -x "$(which buildifier)" ]] && buildifier %"\' | exe \'silent! edit\''
+	pattern = { 'BUILD', 'WORKSPACE', '*.bzl', '*.bazel', '*.blaze' },
+	group = autoformat_group,
+	command = 'exe \'silent! !sh -c "[[ -x "$(which buildifier)" ]] && buildifier %"\' | exe \'silent! edit\''
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
-local lspconfig_util = require('lspconfig.util')
-
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('starpls')
+vim.lsp.enable('kotlin_lsp')
+vim.lsp.enable('ansiblels')
+vim.lsp.enable('bashls')
+vim.lsp.enable('clangd')
+vim.lsp.enable('html')
+vim.lsp.config('lua_ls', {
+	on_init = function(client)
+		if client.workspace_folders then
+			local path = client.workspace_folders[1].name
+			if
+					path ~= vim.fn.stdpath('config')
+					and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+			then
+				return
+			end
+		end
 
-lspconfig['ansiblels'].setup {
-  capabilities = capabilities,
-  settings = {
-    filetypes = { 'yaml.ansible', 'yaml', 'yml' },
-  },
-}
-lspconfig['asm_lsp'].setup {
-  capabilities = capabilities,
-  filetypes = { 'asm', 's', 'S' },
-  root_dir = function(fname)
-    return lspconfig_util.root_pattern('main.asm', 'main.S', 'Makefile')(fname)
-  end,
-}
-lspconfig['bashls'].setup {
-  capabilities = capabilities,
-}
-lspconfig['clangd'].setup {
-  capabilities = capabilities,
-}
-lspconfig['html'].setup {
-  capabilities = capabilities,
-  filetypes = { "html", "htm", "css" },
-}
-lspconfig['lua_ls'].setup {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-}
-lspconfig['pylsp'].setup {
-  capabilities = capabilities
-}
-lspconfig['ts_ls'].setup {
-  capabilities = capabilities,
-}
-lspconfig['volar'].setup {
-  capabilities = capabilities,
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
-}
-lspconfig['zls'].setup {
-  capabilities = capabilities
-}
-lspconfig['mesonlsp'].setup {
-  capabilities = capabilities,
-  root_dir = lspconfig_util.root_pattern("meson_options.txt", "meson.options", ".git", ".hg")
-}
-lspconfig['perlnavigator'].setup({})
+		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most
+				-- likely LuaJIT in the case of Neovim)
+				version = 'LuaJIT',
+				-- Tell the language server how to find Lua modules same way as Neovim
+				-- (see `:h lua-module-load`)
+				path = {
+					'lua/?.lua',
+					'lua/?/init.lua',
+				},
+			},
+			-- Make the server aware of Neovim runtime files
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME
+					-- Depending on the usage, you might want to add additional paths
+					-- here.
+					-- '${3rd}/luv/library'
+					-- '${3rd}/busted/library'
+				}
+				-- Or pull in all of 'runtimepath'.
+				-- NOTE: this is a lot slower and will cause issues when working on
+				-- your own configuration.
+				-- See https://github.com/neovim/nvim-lspconfig/issues/3189
+				-- library = {
+				--   vim.api.nvim_get_runtime_file('', true),
+				-- }
+			}
+		})
+	end,
+	settings = {
+		Lua = {}
+	}
+})
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('pylsp')
+vim.lsp.enable('ts_ls')
+vim.lsp.config('vue_ls', {
+	filetypes = { 'vue', 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'json' }
+})
+vim.lsp.enable('vue_ls')
+vim.lsp.enable('zls')
+vim.lsp.config('mesonlsp', {
+	root_dir = require('lspconfig.util').root_pattern("meson_options.txt", "meson.options", ".git", ".hg"),
+	settings = {
+		meson = {
+			buildtype = "debugoptimized",
+			cpp_args = { "-std=c++20" },
+			c_args = { "-std=c20" },
+			intelliassists = true,
+			linting = true,
+			formatting = true,
+		}
+	}
+})
+vim.lsp.enable('mesonlsp')
+vim.lsp.enable('perlnavigator')
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    local opts = { buffer = ev.buf }
-    map('n', 'gD', vim.lsp.buf.declaration, opts)
-    map('n', 'gd', vim.lsp.buf.definition, opts)
-    map('n', 'K', vim.lsp.buf.hover, opts)
-    map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    map('n', 'gi', vim.lsp.buf.implementation, opts)
-    map('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
-    map('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-    map('n', 'gr', vim.lsp.buf.references, opts)
-    map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    map('n', '<Leader>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
-    map('n', '<Leader>h', function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, opts)
-  end,
+	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+	callback = function(ev)
+		local opts = { buffer = ev.buf }
+		map('n', 'gD', vim.lsp.buf.declaration, opts)
+		map('n', 'gd', vim.lsp.buf.definition, opts)
+		map('n', 'K', vim.lsp.buf.hover, opts)
+		map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+		map('n', 'gi', vim.lsp.buf.implementation, opts)
+		map('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
+		map('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+		map('n', 'gr', vim.lsp.buf.references, opts)
+		map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+		map('n', '<Leader>f', function()
+			vim.lsp.buf.format { async = true }
+		end, opts)
+		map('n', '<Leader>h', function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end, opts)
+	end,
 })
 
 local tabopts = { noremap = true, silent = true }
