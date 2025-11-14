@@ -48,6 +48,10 @@ Plug('catppuccin/nvim', { as = 'catppuccin' })
 Plug 'github/copilot.vim'
 Plug('daltonmenezes/aura-theme', { rtp = 'packages/neovim' })
 
+Plug 'nvim-orgmode/orgmode'
+Plug 'chipsenkbeil/org-roam.nvim'
+Plug 'akinsho/org-bullets.nvim'
+
 Plug 'majormajors/vim-pio'
 
 vim.call('plug#end')
@@ -229,6 +233,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'vsnip' },
+		{ name = 'orgmode' },
 	}, {
 		{ name = 'buffer' },
 	})
@@ -417,3 +422,20 @@ map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', tabopts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', tabopts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', tabopts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', tabopts)
+
+require('orgmode').setup {
+	org_agenda_files = '~/Nextcloud/Documents/orgfiles/**/*',
+	org_default_notes_file = '~/Nextcloud/Documents/orgfiles/refile.org',
+	ui = {
+		folds = {
+			colored = true,
+		},
+		input = {
+			use_vim_ui = true
+		}
+	}
+}
+require('org-roam').setup {
+	directory = '~/Nextcloud/Documents/orgfiles/roam',
+}
+require('org-bullets').setup()
