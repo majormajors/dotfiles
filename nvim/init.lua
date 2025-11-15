@@ -439,3 +439,23 @@ require('org-roam').setup {
 	directory = '~/Nextcloud/Documents/orgfiles/roam',
 }
 require('org-bullets').setup()
+
+set.conceallevel = 2
+set.concealcursor = 'nc'
+set.foldmethod = 'expr'
+set.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+set.foldnestmax = 4
+set.foldtext = ''
+set.foldcolumn = '0'
+set.foldlevelstart = 99
+set.foldlevel = 2
+
+-- Folding setup for org
+vim.cmd([[
+  augroup OrgFolds
+    autocmd!
+    autocmd FileType org setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() foldlevel=99
+    autocmd BufReadPost *.org setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr() foldlevel=99
+    autocmd Syntax org setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
+  augroup END
+]])
