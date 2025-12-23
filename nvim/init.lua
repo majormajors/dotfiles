@@ -18,7 +18,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
-Plug 'ludovicchabant/vim-lawrencium'
+Plug 'gyllstromk/vim-lawrencium'
 Plug 'tpope/vim-fugitive'
 Plug 'Fymyte/rasi.vim'
 Plug 'hashivim/vim-vagrant'
@@ -45,7 +45,6 @@ Plug 'stevearc/overseer.nvim'
 Plug 'ggandor/leap.nvim'
 Plug 'kiyoon/nvim-tree-remote.nvim'
 Plug('catppuccin/nvim', { as = 'catppuccin' })
-Plug 'github/copilot.vim'
 Plug('daltonmenezes/aura-theme', { rtp = 'packages/neovim' })
 
 Plug 'nvim-orgmode/orgmode'
@@ -359,6 +358,15 @@ vim.lsp.config('mesonlsp', {
 })
 vim.lsp.enable('mesonlsp')
 vim.lsp.enable('perlnavigator')
+vim.lsp.enable('blueprint_ls')
+
+-- Filetype autocommands
+local filetype_group = vim.api.nvim_create_augroup('FileTypes', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+	group = filetype_group,
+	pattern = '*.blp',
+	command = 'setfiletype blueprint',
+})
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
