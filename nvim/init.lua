@@ -42,7 +42,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'folke/neodev.nvim'
 Plug 'stevearc/overseer.nvim'
-Plug 'ggandor/leap.nvim'
+Plug 'https://codeberg.org/andyg/leap.nvim'
 Plug 'kiyoon/nvim-tree-remote.nvim'
 Plug('catppuccin/nvim', { as = 'catppuccin' })
 Plug('daltonmenezes/aura-theme', { rtp = 'packages/neovim' })
