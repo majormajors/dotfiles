@@ -22,3 +22,7 @@
 	defaultBranch = trunk
 [branch]
 	sort = -committerdate
+[color]
+	ui = auto
+[http]
+	cookiefile = ~/.gitcookies
