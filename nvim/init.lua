@@ -40,12 +40,12 @@ Plug('mason-org/mason-lspconfig.nvim', { tag = 'v1.32.0' })
 Plug 'nvim-neotest/nvim-nio'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
-Plug 'folke/neodev.nvim'
 Plug 'stevearc/overseer.nvim'
 Plug 'https://codeberg.org/andyg/leap.nvim'
 Plug 'kiyoon/nvim-tree-remote.nvim'
 Plug('catppuccin/nvim', { as = 'catppuccin' })
 Plug('daltonmenezes/aura-theme', { rtp = 'packages/neovim' })
+Plug 'arrufat/vala.vim'
 
 Plug 'nvim-orgmode/orgmode'
 Plug 'chipsenkbeil/org-roam.nvim'
@@ -114,6 +114,7 @@ require("mason-lspconfig").setup {
 		'mesonlsp',
 		'perlnavigator',
 		'starpls',
+		'vala_ls',
 	}
 }
 
@@ -133,10 +134,6 @@ dap.listeners.before.event_exited['dapui_config'] = dapui.close
 map('n', '<Leader>dt', ':DapToggleBreakpoint<CR>')
 map('n', '<Leader>dx', ':DapTerminate<CR>')
 map('n', '<Leader>do', ':DapStepOver<CR>')
-
-require("neodev").setup {
-	library = { plugins = { "nvim-dap-ui" }, types = true },
-}
 
 map('n', '<Space>e', vim.diagnostic.open_float)
 map('n', '<Space>q', vim.diagnostic.setloclist)
@@ -367,6 +364,7 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
 	pattern = '*.blp',
 	command = 'setfiletype blueprint',
 })
+vim.lsp.enable('vala_ls')
 
 
 vim.api.nvim_create_autocmd('LspAttach', {
