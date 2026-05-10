@@ -1,0 +1,13 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "majors"
+email = "majors@majors.email"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6nrd0zZZ17VM2hzZugeJA4LCvsSbQ0+EpTpwW9ZRRF majors"
+
+[ui]
+default-command = "log"
