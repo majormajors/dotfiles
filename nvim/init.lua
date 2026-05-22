@@ -33,7 +33,7 @@ Plug 'NvChad/nvterm'
 Plug 'tpope/vim-obsession'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug('nvim-treesitter/nvim-treesitter', { branch = 'main' })
 Plug 'kylechui/nvim-surround'
 Plug('mason-org/mason.nvim', { tag = 'v1.11.0' })
 Plug('mason-org/mason-lspconfig.nvim', { tag = 'v1.32.0' })
@@ -162,17 +162,6 @@ cmd [[hi NvimTreeWinSeparator guibg=NONE ctermbg=NONE]]
 cmd [[hi CursorLineNR guifg=Yellow ctermfg=Yellow]]
 cmd [[set cursorline]]
 cmd [[set cursorlineopt=number]]
-
--- treesitter
-local ts = require('nvim-treesitter.configs')
-ts.setup {
-	ensure_installed = { "c", "cpp", "lua", "python", "kotlin", "rust" },
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-}
-
 
 -- Airline
 g.airline_powerline_fonts = true
